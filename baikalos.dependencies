@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "baikalos/android_kernel_xiaomi_surya",
+    "target_path": "kernel/xiaomi/surya"
+  },
+  {
+    "repository": "baikalos/android_vendor_xiaomi_surya",
+    "target_path": "vendor/xiaomi/surya"
+  }
+]
