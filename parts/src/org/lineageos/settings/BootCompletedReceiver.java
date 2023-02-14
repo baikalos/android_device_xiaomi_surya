@@ -39,9 +39,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
         if (DEBUG)
             Log.d(TAG, "Received boot completed intent");
-        DiracUtils.onBootCompleted(context);
+        //DiracUtils.onBootCompleted(context);
         DozeUtils.onBootCompleted(context);
-        ThermalUtils.startService(context);
-        RefreshUtils.startService(context);
+        //ThermalUtils.startService(context);
+        //RefreshUtils.startService(context);
     }
 }

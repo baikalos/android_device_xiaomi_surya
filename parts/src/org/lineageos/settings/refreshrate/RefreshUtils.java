@@ -33,6 +33,10 @@ public final class RefreshUtils {
     private static float defaultMinRate;
     private static final String KEY_PEAK_REFRESH_RATE = "peak_refresh_rate";
     private static final String KEY_MIN_REFRESH_RATE = "min_refresh_rate";
+
+    private static final String BAIKALOS_DEFAULT_MAXFPS = "baikalos_default_maxfps";
+    private static final String BAIKALOS_DEFAULT_MINFPS = "baikalos_default_minfps";
+
     private Context mContext;
     protected static boolean isAppInList = false;
 
@@ -73,8 +77,8 @@ public final class RefreshUtils {
     }
 
    protected void getOldRate(){
-        defaultMaxRate = Settings.System.getFloat(mContext.getContentResolver(), KEY_PEAK_REFRESH_RATE, 60);
-        defaultMinRate = Settings.System.getFloat(mContext.getContentResolver(), KEY_MIN_REFRESH_RATE, 60);
+        defaultMaxRate = Settings.System.getFloat(mContext.getContentResolver(), BAIKALOS_DEFAULT_MAXFPS, 60);
+        defaultMinRate = Settings.System.getFloat(mContext.getContentResolver(), BAIKALOS_DEFAULT_MINFPS, 60);
     }
 
 
@@ -179,7 +183,7 @@ public final class RefreshUtils {
 		isAppInList = true;
            }
           }
-	Settings.System.putFloat(mContext.getContentResolver(), KEY_MIN_REFRESH_RATE, minrate);
+    	Settings.System.putFloat(mContext.getContentResolver(), KEY_MIN_REFRESH_RATE, minrate);
         Settings.System.putFloat(mContext.getContentResolver(), KEY_PEAK_REFRESH_RATE, maxrate);
     }
 }
