@@ -143,7 +143,16 @@ service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
     task_profiles ServiceCapacityLow
     disabled
 
-service mi_thermald /vendor/bin/mi_thermald
+#service mi_thermald /vendor/bin/mi_thermald
+#    class core
+#    user root
+#    group system
+
+service vendor.thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine-sdm732.conf}
     class core
     user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    socket thermal-send-rule stream 0660 system system
     group system
