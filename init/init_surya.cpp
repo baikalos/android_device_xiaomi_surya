@@ -89,14 +89,14 @@ void vendor_load_properties() {
     if (hwname == "karna") {
         device = "karna";
         model = "M2007J20CI";
-        name = "karna_in";
-        fingerprint = "POCO/karna_in/karna:11/RKQ1.200826.002/V12.5.8.0.RJGMIXM:user/release-keys";
-        description = "karna_in-user 11 RKQ1.200826.002 V12.5.8.0.RJGMIXM release-keys";
+        name = "karna_eea";
+        fingerprint = "POCO/karna_eea/karna:11/RKQ1.200826.002/V12.0.6.4.RJGEUXM:user/release-keys";
+        description = "karna_eea-user 11 RKQ1.200826.002 V12.0.6.4.RJGEUXM release-keys";
    } else {
         device = "surya";
-        name = "surya_global";
-        fingerprint = "POCO/surya_global/surya:11/RKQ1.200826.002/V12.5.8.0.RJGMIXM:user/release-keys";
-        description = "surya_global-user 11 RKQ1.200826.002 V12.5.8.0.RJGMIXM release-keys";
+        name = "surya_eea";
+        fingerprint = "POCO/surya_eea/surya:11/RKQ1.200826.002/V12.0.6.4.RJGEUXM:user/release-keys";
+        description = "surya_eea-user 11 RKQ1.200826.002 V12.0.6.4.RJGEUXM release-keys";
 
         if (region == "THAI" || region == "THAI_PA")
             model = "M2007J20CT";
