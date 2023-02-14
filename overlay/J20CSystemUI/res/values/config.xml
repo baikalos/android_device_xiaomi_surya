@@ -12,4 +12,37 @@
     vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
 
+    <string name="config_rrInfoSysNode" translatable="false">/sys/devices/platform/soc/soc:qcom,dsi-display/current_refresh_rate</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/devices/virtual/thermal/thermal_zone19/temp</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensorPrefix" translatable="false">/sys/devices/virtual/thermal/thermal_zone</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensorSuffix" translatable="false">/temp</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensorNumber" translatable="false">11,12,13,14,15,16,19,20</string>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">1000</integer>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_sysTempDivider" translatable="false">1000</integer>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_batTempDivider" translatable="false">1000</integer>
+
+    <!-- The SYS temperature sensor path, defaults to empty -->
+    <string name="config_sysTempSensor" translatable="false">/sys/devices/virtual/thermal/thermal_zone35/temp</string>
+
+    <!-- The BAT temperature sensor path, defaults to empty -->
+    <string name="config_batTempSensor" translatable="false">/sys/devices/virtual/thermal/thermal_zone74/temp</string>
+
+    <string name="config_gpuFreqSensor" translatable="false">/sys/kernel/gpu/gpu_clock</string>
+
+    <!--bool name="config_clipNotificationsToOutline">true</bool-->
+
 </resources>
