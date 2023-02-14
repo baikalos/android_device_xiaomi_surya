@@ -1,38 +1,3 @@
-<!-- 
-    This is a skeleton device manifest. Notes: 
-    1. If a HAL is supported in both hwbinder and passthrough transport,
-       only hwbinder is shown.
-    2. It is likely that HALs in passthrough transport does not have
-       <interface> declared; users will have to write them by hand.
-    3. A HAL with lower minor version can be overridden by a HAL with
-       higher minor version if they have the same name and major version.
-    4. This output is intended for launch devices.
-       Upgrading devices should not use this tool to generate device
-       manifest and replace the existing manifest directly, but should
-       edit the existing manifest manually.
-       Specifically, devices which launched at Android O-MR1 or earlier
-       should not use the 'fqname' format for required HAL entries and
-       should instead use the legacy package, name, instance-name format
-       until they are updated.
-
-    The following HALs are not added; see warnings.
-        android.hardware.health@2.1::IHealth/default
-        vendor.qti.hardware.display.mapper@3.0::IQtiMapper/default
-        vendor.qti.hardware.display.mapper@4.0::IQtiMapper/default
-
-    The following HALs are passthrough and no interface or instance 
-    names can be inferred.
-        android.hardware.graphics.mapper@3.0::I*/* (/vendor/lib/hw/) (-qti-display)
-        android.hardware.graphics.mapper@3.0::I*/* (/vendor/lib64/hw/) (-qti-display)
-        android.hardware.graphics.mapper@4.0::I*/* (/vendor/lib/hw/) (-qti-display)
-        android.hardware.graphics.mapper@4.0::I*/* (/vendor/lib64/hw/) (-qti-display)
-        android.hidl.memory@1.0::I*/* (/apex/com.android.vndk.v33/lib/hw/)
-        android.hidl.memory@1.0::I*/* (/apex/com.android.vndk.v33/lib64/hw/)
-        android.hidl.memory@1.0::I*/* (/system/lib/hw/)
-        android.hidl.memory@1.0::I*/* (/system/lib64/hw/)
-        com.dsi.ant@1.0::I*/* (/vendor/lib64/hw/)
-        vendor.qti.hardware.btconfigstore@1.0::I*/* (/vendor/lib64/hw/)
--->
 <manifest version="5.0" type="device" target-level="4">
     <hal format="hidl">
         <name>android.hardware.audio</name>
@@ -111,7 +76,7 @@
     <hal format="hidl">
         <name>android.hardware.keymaster</name>
         <transport>hwbinder</transport>
-        <fqname>@4.0::IKeymasterDevice/default</fqname>
+        <fqname>@4.1::IKeymasterDevice/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.media.c2</name>
@@ -154,6 +119,15 @@
         <fqname>@2.1::ISensors/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport>hwbinder</transport>
+        <version>2.2</version>
+        <interface>
+            <name>ISoundTriggerHw</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.tetheroffload.config</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IOffloadConfig/default</fqname>
@@ -193,7 +167,7 @@
     <hal format="hidl">
         <name>com.qualcomm.qti.uceservice</name>
         <transport>hwbinder</transport>
-        <fqname>@2.2::IUceService/com.qualcomm.qti.uceservice</fqname>
+        <fqname>@2.3::IUceService/com.qualcomm.qti.uceservice</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.display.config</name>
@@ -225,7 +199,7 @@
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
         <transport>hwbinder</transport>
-        <fqname>@2.1::IFactory/default</fqname>
+        <fqname>@2.3::IFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.gnss</name>
@@ -243,7 +217,7 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_audio</name>
         <transport>hwbinder</transport>
-        <fqname>@2.0::IBluetoothAudioProvidersFactory/default</fqname>
+        <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_sar</name>
@@ -312,8 +286,8 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.lpa</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IUimLpa/UimLpa0</fqname>
-        <fqname>@1.0::IUimLpa/UimLpa1</fqname>
+        <fqname>@1.2::IUimLpa/UimLpa0</fqname>
+        <fqname>@1.2::IUimLpa/UimLpa1</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.qcrilhook</name>
@@ -348,9 +322,9 @@
         <fqname>@1.0::IUimRemoteServiceServer/uimRemoteServer1</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.soter</name>
+        <name>vendor.qti.hardware.tui_comm</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::ISoter/default</fqname>
+        <fqname>@1.0::ITuiComm/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.vpp</name>
@@ -365,7 +339,7 @@
     <hal format="hidl">
         <name>vendor.qti.ims.factory</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IImsFactory/default</fqname>
+        <fqname>@1.1::IImsFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
