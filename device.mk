@@ -14,7 +14,7 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -41,7 +41,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.soundtrigger@2.2-impl \
     android.hardware.bluetooth.audio-impl \
-    sound_trigger.primary.sm6150_xiaomi
+    sound_trigger.primary.sm6150.surya
 
 
 PRODUCT_PACKAGES += \
@@ -84,7 +84,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
-    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
 
@@ -105,10 +105,24 @@ TARGET_ENABLE_BLUR := true
 # Camera
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service_64 \
+    libcamera2ndk_vendor \
     libdng_sdk.vendor \
-    vendor.qti.hardware.camera.device@1.0.vendor
+    libgui_vendor \
+    libstdc++.vendor
+
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.camera.device@1.0.vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor
+
+PRODUCT_PACKAGES += \
+    libMegviiFacepp-0.5.2 \
+    libmegface
+
+#    vendor.qti.hardware.camera.device@1.0.vendor
+#    android.hardware.camera.provider@2.4-impl \
+#    android.hardware.camera.provider@2.4-service_64 \
+
+#
 
 PRODUCT_PACKAGES += \
     libpiex_shim
@@ -125,6 +139,8 @@ PRODUCT_PACKAGES += \
 
 # Dex
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
 
 # Display
 PRODUCT_PACKAGES += \
@@ -133,8 +149,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.mapper@1.1.vendor
+    vendor.qti.hardware.display.allocator-service
+    
 
 PRODUCT_PACKAGES += \
     gralloc.sm6150 \
@@ -142,7 +158,12 @@ PRODUCT_PACKAGES += \
     memtrack.sm6150
 
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.mapper@2.0.vendor
+    vendor.qti.hardware.display.composer@1.0.vendor \
+    vendor.qti.hardware.display.composer@2.0.vendor \
+    vendor.qti.hardware.display.mapper@1.1.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0 \
+    vendor.qti.hardware.display.mapper@4.0.vendor
 
 PRODUCT_PACKAGES += \
     disable_configstore
@@ -159,7 +180,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml
 
-TARGET_EXCLUDES_AUDIOFX := true
+# TARGET_EXCLUDES_AUDIOFX := true
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -243,7 +264,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.power.rc \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.usb.rc \
     $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.thermal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.thermal.rc
+    $(LOCAL_PATH)/rootdir/etc/init.thermal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.thermal.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.custom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.custom.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.qcom.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.sh
@@ -285,13 +307,16 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libavservices_minijail \
     libavservices_minijail.vendor \
     libcodec2_vndk.vendor \
     libcodec2_hidl@1.0.vendor \
+    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
+    libOmxG711Enc \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
@@ -323,7 +348,9 @@ PRODUCT_COPY_FILES += \
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
+    libchrome.vendor \
     NfcNci \
+    SecureElement \
     Tag
 
 PRODUCT_PACKAGES += \
@@ -361,6 +388,7 @@ PRODUCT_PACKAGES += \
     KarnaFrameworks \
     KarnaSettingsProvider \
     KarnaWifiResources \
+    NotchBarKillerSurya \
     SuryaFrameworks \
     SuryaSettingsProvider \
     SuryaWifiResources
