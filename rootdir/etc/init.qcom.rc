@@ -29,6 +29,7 @@ import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.thermal.rc
+import /vendor/etc/init/hw/init.custom.rc
 
 on early-init
     # Change ownership of hw_recovery related nodes
@@ -208,6 +209,9 @@ on post-fs-data
 
 on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
+
+on property:vendor.netflix.bsp_rev=*
+    setprop ro.netflix.bsp_rev ${vendor.netflix.bsp_rev}
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
