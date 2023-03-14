@@ -14,3 +14,9 @@ cc_library {
     srcs: [ "lib-watermarkshim.cpp" ],
 }
 
+cc_library_shared {
+    name: "libcameraservice_shim",
+    srcs: ["libcameraservice_shim.c"],
+    //vendor: true,
+}
+
