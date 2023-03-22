@@ -325,4 +325,5 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
 ro.product.mod_device=surya_global
 
 
-
+bluetooth.sco.disable_enhanced_connection=1
+bluetooth.le.disable_apcf_extended_features=1
