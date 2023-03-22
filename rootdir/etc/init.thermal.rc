@@ -80,21 +80,60 @@ on property:baikal.power.thermal=10
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 70000
 
 
-on property:baikal.power.perf=0
+#on property:baikal.power.perf=0
+#    setprop "baikal.eng.perf.cur_profile" "none"
+
+#on property:baikal.power.perf=7
+#    setprop "baikal.eng.perf.cur_profile" "balance"
+
+#on property:baikal.power.perf=1
+#    setprop "baikal.eng.perf.cur_profile" "low"
+
+#on property:baikal.power.perf=2
+#    setprop "baikal.eng.perf.cur_profile" "sustain"
+
+#on property:baikal.power.perf=3
+#    setprop "baikal.eng.perf.cur_profile" "fixed"
+
+#on property:baikal.power.perf=8
+#    setprop "baikal.eng.perf.cur_profile" "idle"
+
+
+#        "LAUNCH",
+#        "FIXED_PERFORMANCE",
+#        "SUSTAINED_PERFORMANCE",
+#        "INTERACTIVE",
+#        "INTERACTION",
+#        "LOW_POWER",
+#        "DEVICE_IDLE",
+#        "DISPLAY_INACTIVE",
+#        "EXPENSIVE_RENDERING",
+#        "VR",
+#        "UNKNOWN"
+
+on property:vendor.powerhal.state=UNKNOWN
     setprop "baikal.eng.perf.cur_profile" "none"
 
-on property:baikal.power.perf=7
+on property:vendor.powerhal.state=INTERACTIVE
     setprop "baikal.eng.perf.cur_profile" "balance"
 
-on property:baikal.power.perf=1
+on property:vendor.powerhal.state=LOW_POWER
     setprop "baikal.eng.perf.cur_profile" "low"
 
-on property:baikal.power.perf=2
+on property:vendor.powerhal.state=SUSTAINED_PERFORMANCE
     setprop "baikal.eng.perf.cur_profile" "sustain"
 
-on property:baikal.power.perf=3
+on property:vendor.powerhal.state=FIXED_PERFORMANCE
     setprop "baikal.eng.perf.cur_profile" "fixed"
 
-on property:baikal.power.perf=8
+on property:vendor.powerhal.state=DEVICE_IDLE
     setprop "baikal.eng.perf.cur_profile" "idle"
 
+on property:vendor.powerhal.state=INTERACTION
+    setprop "baikal.eng.perf.cur_profile" "boost"
+
+on property:vendor.powerhal.state=LAUNCH
+    setprop "baikal.eng.perf.cur_profile" "launch"
+
+on property:vendor.powerhal.state=EXPENSIVE_RENDERING
+    setprop "baikal.eng.perf.cur_profile" "render"
