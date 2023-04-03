@@ -28,6 +28,8 @@
 import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.thermal.rc
+import /vendor/etc/init/hw/init.custom.rc
 
 on early-init
     # Change ownership of hw_recovery related nodes
@@ -197,6 +199,10 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # Dolby
+    mkdir /data/vendor/dolby 0770 media media
+    mkdir /data/vendor/multimedia 0775 system system
+
 on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
 
@@ -253,3 +259,9 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     task_profiles ProcessCapacityHigh HighPerformance
     socket audio_hw_socket seqpacket 0666 system system
     onrestart restart audioserver
+
+on property:sys.boot_completed=1
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
+

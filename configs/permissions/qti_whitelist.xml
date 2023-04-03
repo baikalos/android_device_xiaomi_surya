@@ -33,12 +33,16 @@
 <config>
     <!-- These are telephony components that need to freely run in the background -->
     <allow-in-power-save package="com.qualcomm.qcrilmsgtunnel" />
+    <allow-in-power-save package="com.qualcomm.atfwd" />
     <allow-in-power-save package="com.qualcomm.qti.ims" />
     <allow-in-power-save package="com.qualcomm.qti.radioconfiginterface" />
     <allow-in-power-save package="com.qualcomm.qti.telephonyservice" />
+    <allow-in-power-save package="com.qualcomm.qti.ims" />
+    <allow-in-power-save package="com.google.android.ims" />
 
     <!-- These telephony applications need access to non-[System]SDK APIs -->
     <hidden-api-whitelisted-app package="com.qualcomm.qcrilmsgtunnel" />
+    <hidden-api-whitelisted-app package="com.qualcomm.atfwd" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.telephonyservice" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.radioconfiginterface" />
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteclient" />

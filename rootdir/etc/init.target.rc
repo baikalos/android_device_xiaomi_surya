@@ -85,6 +85,11 @@ on boot
 
     # Create fingerprint related directory
     mkdir /mnt/vendor/persist/goodix 0770 system system
+    
+    # FPS Info
+    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
+    chmod 0666 /sys/class/drm/sde-crtc-0/measured_fps
+    
 
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
@@ -123,3 +128,16 @@ service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
     group nfc
     task_profiles ServiceCapacityLow
     disabled
+
+service vendor.thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine-sdm732.conf}
+    class core
+    user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    socket thermal-send-rule stream 0660 system system
+    group system
+
+
+on charger
+    start vendor.thermal-engine

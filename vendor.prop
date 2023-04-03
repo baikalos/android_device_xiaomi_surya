@@ -83,6 +83,16 @@ vendor.audio.use.sw.ape.decoder=true
 vendor.audio.volume.headset.gain.depcal=true
 vendor.voice.path.for.pcm.voip=true
 
+# ACDB
+persist.vendor.audio.calfile0=/vendor/etc/acdbdata/IDP/IDP_Speaker_cal.acdb
+persist.vendor.audio.calfile1=/vendor/etc/acdbdata/IDP/IDP_Headset_cal.acdb
+persist.vendor.audio.calfile2=/vendor/etc/acdbdata/IDP/IDP_General_cal.acdb
+persist.vendor.audio.calfile3=/vendor/etc/acdbdata/IDP/IDP_Codec_cal.acdb
+persist.vendor.audio.calfile4=/vendor/etc/acdbdata/IDP/IDP_Bluetooth_cal.acdb
+persist.vendor.audio.calfile5=/vendor/etc/acdbdata/IDP/IDP_Hdmi_cal.acdb
+persist.vendor.audio.calfile6=/vendor/etc/acdbdata/IDP/IDP_Global_cal.acdb
+persist.vendor.audio.calfile7=/vendor/etc/acdbdata/IDP/IDP_Handset_cal.acdb
+
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
 bluetooth.hardware.power.operating_voltage_mv=3300
@@ -141,6 +151,9 @@ persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.vendor.dpmhalservice.enable=1
 
 # Display
+ro.surface_flinger.supports_background_blur=1
+ro.sf.blurs_are_expensive=1
+
 debug.sf.disable_client_composition_cache=1
 debug.sf.use_phase_offsets_as_durations=1
 debug.sf.late.sf.duration=10500000
@@ -278,3 +291,8 @@ ro.vendor.qti.cgroup_follow.enable=true
 persist.vendor.qti.inputopts.enable=true 
 persist.vendor.qti.inputopts.movetouchslop=0.6 
 ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
+
+
+#Bluetooth
+bluetooth.sco.disable_enhanced_connection=1
+bluetooth.le.disable_apcf_extended_features=1

@@ -185,6 +185,11 @@
         <fqname>@4.0::ILocHidlGnss/gnss_vendor</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.alarm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IAlarm/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_audio</name>
         <transport>hwbinder</transport>
         <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
@@ -247,6 +252,11 @@
         <transport>hwbinder</transport>
         <fqname>@1.7::IImsRadio/imsradio0</fqname>
         <fqname>@1.7::IImsRadio/imsradio1</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.internal.deviceinfo</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IDeviceInfo/deviceinfo</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.lpa</name>

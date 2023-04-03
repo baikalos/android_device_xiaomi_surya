@@ -13,6 +13,13 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/surya/surya-vendor.mk)
 
+# Dolby Atmos
+$(call inherit-product, vendor/dolby/dolby.mk)
+
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -27,7 +34,10 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio@2.1-impl
+    android.hardware.bluetooth.audio@2.1-impl \
+    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.bluetooth.audio-impl \
+    sound_trigger.primary.sm6150
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
@@ -38,8 +48,9 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libvolumelistener \
     libtinycompress \
-    libvolumelistener
+    tinymix
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -48,6 +59,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/configs/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tavil.txt \
+    $(LOCAL_PATH)/configs/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
     $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9375.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9375.xml
 
 PRODUCT_COPY_FILES += \
@@ -77,7 +89,14 @@ PRODUCT_COPY_FILES += \
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
+# Blur
+TARGET_ENABLE_BLUR := true
+
 # Camera
+# Disable vsync for cpu rendered apps
+PRODUCT_SYSTEM_PROPERTIES += \
+   debug.cpurend.vsync=false
+
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
@@ -100,8 +119,8 @@ PRODUCT_PACKAGES += \
     libpiex_shim
 
 # Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
+#PRODUCT_PACKAGES += \
+#    XiaomiParts
 
 # Dexpreopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -214,7 +233,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.power.rc \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.usb.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc
+    $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.thermal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.thermal.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.custom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.custom.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.qcom.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.sh
@@ -317,6 +338,7 @@ PRODUCT_COPY_FILES += \
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-baikalos \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS += *
@@ -354,7 +376,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # QTI
 PRODUCT_PACKAGES += \
@@ -415,6 +437,8 @@ PRODUCT_PACKAGES += \
     extphonelib_product.xml \
     ims-ext-common \
     ims_ext_common.xml \
+    lib-imsvtshim:64 \
+    lib-imsvtshim \
     qti-telephony-hidl-wrapper \
     qti-telephony-hidl-wrapper-prd \
     qti_telephony_hidl_wrapper.xml \
@@ -492,3 +516,21 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-arvr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-arvr.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-camera.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-camera.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-cool.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-cool.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-cold.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-cold.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-high.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-high.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-nolimits.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-nolimits.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-tgame.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-tgame.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-tgame2.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-tgame2.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
+
+# Zygote
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.device_config.runtime_native.usap_pool_enabled=true \
+    zygote.critical_window.minute=10
+

@@ -1,0 +1,139 @@
+# Balance (default profile)
+on property:baikal.power.thermal=1
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "balance"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 85000
+
+# High
+on property:baikal.power.thermal=5
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-high.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "high"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 95000
+
+
+# NoLimits
+on property:baikal.power.thermal=4
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-nolimits.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "nolimits"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 115000
+
+# Cool
+on property:baikal.power.thermal=6
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-cool.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "cool"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 60000
+
+# Cold
+on property:baikal.power.thermal=7
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-cold.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "cold"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 50000
+
+# Phone
+on property:baikal.power.thermal=9
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-cool.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "incall"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 55000
+
+# Gaming
+on property:baikal.power.thermal=2
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-tgame.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "gaming"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 95000
+
+# Gaming 2
+on property:baikal.power.thermal=3
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-tgame2.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "gaming2"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 115000
+
+# Camera
+on property:baikal.power.thermal=8
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-camera.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "camera"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 70000
+
+# VR
+on property:baikal.power.thermal=10
+    setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine-sdm732-arvr.conf"
+    stop vendor.thermal-engine
+    start vendor.thermal-engine
+    setprop "baikal.eng.therm.cur_profile" "vr"
+    write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 70000
+
+
+#on property:baikal.power.perf=0
+#    setprop "baikal.eng.perf.cur_profile" "none"
+
+#on property:baikal.power.perf=7
+#    setprop "baikal.eng.perf.cur_profile" "balance"
+
+#on property:baikal.power.perf=1
+#    setprop "baikal.eng.perf.cur_profile" "low"
+
+#on property:baikal.power.perf=2
+#    setprop "baikal.eng.perf.cur_profile" "sustain"
+
+#on property:baikal.power.perf=3
+#    setprop "baikal.eng.perf.cur_profile" "fixed"
+
+#on property:baikal.power.perf=8
+#    setprop "baikal.eng.perf.cur_profile" "idle"
+
+
+#        "LAUNCH",
+#        "FIXED_PERFORMANCE",
+#        "SUSTAINED_PERFORMANCE",
+#        "INTERACTIVE",
+#        "INTERACTION",
+#        "LOW_POWER",
+#        "DEVICE_IDLE",
+#        "DISPLAY_INACTIVE",
+#        "EXPENSIVE_RENDERING",
+#        "VR",
+#        "UNKNOWN"
+
+on property:vendor.powerhal.state=UNKNOWN
+    setprop "baikal.eng.perf.cur_profile" "none"
+
+on property:vendor.powerhal.state=INTERACTIVE
+    setprop "baikal.eng.perf.cur_profile" "balance"
+
+on property:vendor.powerhal.state=LOW_POWER
+    setprop "baikal.eng.perf.cur_profile" "low"
+
+on property:vendor.powerhal.state=SUSTAINED_PERFORMANCE
+    setprop "baikal.eng.perf.cur_profile" "sustain"
+
+on property:vendor.powerhal.state=FIXED_PERFORMANCE
+    setprop "baikal.eng.perf.cur_profile" "fixed"
+
+on property:vendor.powerhal.state=DEVICE_IDLE
+    setprop "baikal.eng.perf.cur_profile" "idle"
+
+on property:vendor.powerhal.state=INTERACTION
+    setprop "baikal.eng.perf.cur_profile" "boost"
+
+on property:vendor.powerhal.state=LAUNCH
+    setprop "baikal.eng.perf.cur_profile" "launch"
+
+on property:vendor.powerhal.state=EXPENSIVE_RENDERING
+    setprop "baikal.eng.perf.cur_profile" "render"

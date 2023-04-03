@@ -18,6 +18,7 @@ allow hal_fingerprint_default vendor_sysfs_fingerprint:file rw_file_perms;
 allow hal_fingerprint_default vendor_sysfs_graphics:dir r_dir_perms;
 allow hal_fingerprint_default vendor_sysfs_graphics:file rw_file_perms;
 allow hal_fingerprint_default vendor_xdsp_device:chr_file r_file_perms;
+allow hal_fingerprint_default hal_fingerprint_hwservice:hwservice_manager { add };
 
 r_dir_file(hal_fingerprint_default, firmware_file)
 
