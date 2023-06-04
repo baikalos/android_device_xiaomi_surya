@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "SunlightEnhancementService"
+#define LOG_TAG "AdaptiveBacklightService"
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/strings.h>
 
-#include "SunlightEnhancement.h"
+#include "AdaptiveBacklight.h"
 
 namespace vendor {
 namespace lineage {
@@ -28,20 +28,20 @@ namespace livedisplay {
 namespace V2_1 {
 namespace implementation {
 
-static constexpr const char* kHbmStatusPath = "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
+static constexpr const char* kCabcStatusPath = "/sys/devices/platform/soc/soc:qcom,dsi-display/cabc";
 
-Return<bool> SunlightEnhancement::isEnabled() {
+Return<bool> AdaptiveBacklight::isEnabled() {
     std::string buf;
-    if (!android::base::ReadFileToString(kHbmStatusPath, &buf)) {
-        LOG(ERROR) << "Failed to read " << kHbmStatusPath;
+    if (!android::base::ReadFileToString(kCabcStatusPath, &buf)) {
+        LOG(ERROR) << "Failed to read " << kCabcStatusPath;
         return false;
     }
     return std::stoi(android::base::Trim(buf)) == 1;
 }
 
-Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    if (!android::base::WriteStringToFile((enabled ? "2" : "0"), kHbmStatusPath)) {
-        LOG(ERROR) << "Failed to write " << kHbmStatusPath;
+Return<bool> AdaptiveBacklight::setEnabled(bool enabled) {
+    if (!android::base::WriteStringToFile((enabled ? "2" : "0"), kCabcStatusPath)) {
+        LOG(ERROR) << "Failed to write " << kCabcStatusPath;
         return false;
     }
     return true;
