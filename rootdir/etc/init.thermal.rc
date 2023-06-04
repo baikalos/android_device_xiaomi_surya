@@ -4,6 +4,7 @@ on property:baikal.power.thermal=1
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "balance"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 85000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 85000
 
 # High
@@ -12,6 +13,7 @@ on property:baikal.power.thermal=5
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "high"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 95000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 95000
 
 
@@ -21,6 +23,7 @@ on property:baikal.power.thermal=4
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "nolimits"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 115000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 115000
 
 # Cool
@@ -29,6 +32,7 @@ on property:baikal.power.thermal=6
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "cool"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 60000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 60000
 
 # Cold
@@ -37,6 +41,7 @@ on property:baikal.power.thermal=7
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "cold"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 50000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 50000
 
 # Phone
@@ -45,6 +50,7 @@ on property:baikal.power.thermal=9
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "incall"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 55000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 55000
 
 # Gaming
@@ -53,6 +59,7 @@ on property:baikal.power.thermal=2
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "gaming"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 95000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 95000
 
 # Gaming 2
@@ -61,6 +68,7 @@ on property:baikal.power.thermal=3
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "gaming2"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 115000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 115000
 
 # Camera
@@ -69,6 +77,7 @@ on property:baikal.power.thermal=8
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "camera"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 70000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 70000
 
 # VR
@@ -77,6 +86,7 @@ on property:baikal.power.thermal=10
     stop vendor.thermal-engine
     start vendor.thermal-engine
     setprop "baikal.eng.therm.cur_profile" "vr"
+    write /sys/devices/virtual/thermal/thermal_zone42/trip_point_0_temp 70000
     write /sys/devices/virtual/thermal/thermal_zone43/trip_point_0_temp 70000
 
 
