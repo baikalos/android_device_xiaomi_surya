@@ -111,7 +111,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>android.hardware.radio</name>
-    <version>1.0-5</version>
+    <version>1.0-6</version>
     <interface>
         <name>ISap</name>
         <instance>slot2</instance>
