@@ -89,6 +89,16 @@ on boot
     # FPS Info
     chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
     chmod 0666 /sys/class/drm/sde-crtc-0/measured_fps
+
+    # access permissions for vibrator calibration
+    chmod 0666 sys/devices/platform/soc/884000.i2c/i2c-3/3-005a/cali
+    chmod 0666 sys/devices/platform/soc/884000.i2c/i2c-3/3-005a/cali_save
+    chmod 0666 sys/devices/platform/soc/884000.i2c/i2c-3/3-005a/f0_save
+    chmod 0666 sys/devices/platform/soc/884000.i2c/i2c-3/3-005a/osc_save
+    chmod 0666 sys/devices/platform/soc/884000.i2c/i2c-3/3-005a/osc_cali
+
+on property:sys.boot_completed=1
+    start vibrator_calibration
     
 
 on property:sys.boot_completed=1
@@ -121,13 +131,21 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
+service vibrator_calibration /vendor/bin/vibrator_calibration
+     class late_start
+     user system
+     group system
+     disabled
+     oneshot
+
 service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
     override
     class hal
     user nfc
     group nfc
-    task_profiles ServiceCapacityLow
+#    task_profiles ServiceCapacityLow
     disabled
+    task_profiles ProcessCapacityHigh HighPerformance
 
 service vendor.thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine-sdm732.conf}
     class core
@@ -137,6 +155,7 @@ service vendor.thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcf
     socket thermal-recv-passive-client stream 0666 system system
     socket thermal-send-rule stream 0660 system system
     group system
+    task_profiles ProcessCapacityHigh HighPerformance
 
 
 on charger
