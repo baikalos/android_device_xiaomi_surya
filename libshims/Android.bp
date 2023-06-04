@@ -9,3 +9,9 @@ cc_library {
     system_ext_specific: true,
 }
 
+cc_library_shared {
+    name: "libcameraservice_shim",
+    srcs: ["libcameraservice_shim.c"],
+    //vendor: true,
+}
+
