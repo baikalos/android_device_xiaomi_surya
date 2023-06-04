@@ -25,4 +25,7 @@
     <string name="config_bypassChargingResumeValue" translatable="false">0</string>
     <string name="config_bypassChargingLimitValue" translatable="false">2</string>
 
+    <!-- Whether to force enable multi resolution configuration for camera -->
+    <bool name="config_forceMultiResolution">true</bool>
+
 </resources>

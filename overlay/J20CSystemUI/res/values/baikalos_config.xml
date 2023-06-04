@@ -16,4 +16,45 @@
     <!-- FPSInfoService FPS node file path -->
     <string name="config_fpsInfoSysNodeBaikal" translatable="false">/sys/class/drm/sde-crtc-0/baikal_measured_fps</string>
 
+    <string name="config_brightnessSensor" translatable="false">/sys/class/backlight/panel0-backlight/brightness</string>
+
+    <string name="config_rrInfoSysNode" translatable="false">/sys/devices/platform/soc/soc:qcom,dsi-display/current_refresh_rate</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuLiteSensorNumber" translatable="false">0,7</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/devices/virtual/thermal/thermal_zone19/temp</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensorPrefix" translatable="false">/sys/devices/virtual/thermal/thermal_zone</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensorSuffix" translatable="false">/temp</string>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensorNumber" translatable="false">11,12,13,14,15,16,19,20</string>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">1000</integer>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_sysTempDivider" translatable="false">1000</integer>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_batTempDivider" translatable="false">1000</integer>
+
+    <!-- The SYS temperature sensor path, defaults to empty -->
+    <string name="config_sysTempSensor" translatable="false">/sys/devices/virtual/thermal/thermal_zone35/temp</string>
+
+    <!-- The BAT temperature sensor path, defaults to empty -->
+    <string name="config_batTempSensor" translatable="false">/sys/devices/virtual/thermal/thermal_zone74/temp</string>
+
+    <string name="config_gpuFreqSensor" translatable="false">/sys/kernel/gpu/gpu_clock</string>
+
+    <!-- The Brightness temperature divider, if needed -->
+    <integer name="config_brightnessDivider" translatable="false">4096</integer>
+
+    <bool name="flag_combined_qs_headers">false</bool>
+
 </resources>

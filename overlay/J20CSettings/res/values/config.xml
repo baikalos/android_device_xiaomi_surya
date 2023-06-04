@@ -14,4 +14,6 @@
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings/org.lineageos.settings.doze.DozeSettingsActivity</string>
 
+    <integer name="config_vibration_supported_intensity_levels">3</integer>
+
 </resources>
