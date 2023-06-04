@@ -6,6 +6,7 @@ ro.charger.enable_suspend=true
 
 # Camera
 log.tag.CHIUSECASE=ERROR
+persist.vendor.camera.xiaomi.dirty.num=0
 
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
@@ -46,3 +47,11 @@ wifi.interface=wlan0
 # Telephony
 # Disable handling audio direction changes on IMS calls.
 ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
+
+
+#Baikal dex2oat
+pm.dexopt.install=verify
+pm.dexopt.install-fast=verify
+pm.dexopt.inactive=speed-profile
+pm.dexopt.cmdline=speed-profile
+pm.dexopt.boot-after-ota=verify
