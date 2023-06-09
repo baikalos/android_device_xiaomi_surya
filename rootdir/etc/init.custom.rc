@@ -77,10 +77,3 @@ on property:persist.baikal.srv.afx=0
 on property:persist.baikal.audio_hq=*
     setprop sys.audio.restart.hal 1
 
-
-on property:baikalos.ovr.boost.silver=*
-    write /sys/module/sched/parameters/boost_override_silver ${baikalos.ovr.boost.silver:--1}
-
-on property:baikalos.ovr.boost.gold=*
-    write /sys/module/sched/parameters/boost_override_gold ${baikalos.ovr.boost.gold:--1}
-
