@@ -234,8 +234,8 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.vendor.qti.telephony.vt_cam_interface=2
-persist.vendor.radio.report_codec=1
-persist.vendor.radio.vdp_on_ims_cap=1
+#persist.vendor.radio.report_codec=1
+#persist.vendor.radio.vdp_on_ims_cap=1
 
 
 # Keystore
@@ -312,6 +312,125 @@ ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
 
 
 #Bluetooth
-bluetooth.sco.disable_enhanced_connection=1
-bluetooth.le.disable_apcf_extended_features=1
+#bluetooth.sco.disable_enhanced_connection=1
+#bluetooth.le.disable_apcf_extended_features=1
 
+# Silver Cluster
+# 9999999 - 0
+# 1708800 - 1
+# 1612800 - 2
+# 1497600 - 3
+# 1324800 - 4
+# 1248000 - 5
+# 1017600 - 6
+# 768000  - 7
+# 576000  - 8
+# 300000  - 9
+
+
+# Gold Cluster
+# 9999999 - 0
+# 2208000 - 1
+# 2169600 - 2
+# 1939200 - 3
+# 1843200 - 4
+# 1708800 - 5
+# 1555200 - 6
+# 1324800 - 7
+# 1209600 - 8
+# 1094400 - 9
+# 979200 - 10
+# 806400 - 11
+# 652800 - 12
+# 300000 - 13
+
+# Stune boosts
+# 50 - 0
+# 45 - 1
+# 40 - 2
+# 34 - 3
+# 30 - 4
+# 25 - 5
+# 20 - 6
+# 15 - 7
+# 10 - 8
+# 9 - 9
+# 8 - 10
+# 7 - 11
+# 6 - 12
+# 5 - 13
+# 4 - 14
+# 3 - 15
+# 2 - 16
+# 1 - 17
+# 0 - 18
+
+persist.baikal.render.CPULittleClusterMaxFreq=0
+persist.baikal.render.CPUBigClusterMaxFreq=0
+persist.baikal.render.CPULittleClusterMinFreq=9
+persist.baikal.render.CPUBigClusterMinFreq=13
+persist.baikal.render.GPUMinFreq=3
+persist.baikal.render.GPUMaxFreq=0
+persist.baikal.render.TASchedtuneBoost=7
+persist.baikal.render.TASilverBoost=7
+persist.baikal.render.TAGoldBoost=7
+
+persist.baikal.boost.CPULittleClusterMaxFreq=0
+persist.baikal.boost.CPUBigClusterMaxFreq=0
+persist.baikal.boost.CPULittleClusterMinFreq=4
+persist.baikal.boost.CPUBigClusterMinFreq=13
+persist.baikal.boost.GPUMinFreq=6
+persist.baikal.boost.GPUMaxFreq=0
+persist.baikal.boost.TASchedtuneBoost=7
+persist.baikal.boost.TASilverBoost=7
+persist.baikal.boost.TAGoldBoost=7
+
+persist.baikal.idle.CPULittleClusterMaxFreq=4
+persist.baikal.idle.CPUBigClusterMaxFreq=6
+persist.baikal.idle.CPULittleClusterMinFreq=9
+persist.baikal.idle.CPUBigClusterMinFreq=13
+persist.baikal.idle.GPUMinFreq=6
+persist.baikal.idle.GPUMaxFreq=4
+persist.baikal.idle.TASchedtuneBoost=18
+persist.baikal.idle.TASilverBoost=18
+persist.baikal.idle.TAGoldBoost=18
+
+persist.baikal.low.CPULittleClusterMaxFreq=4
+persist.baikal.low.CPUBigClusterMaxFreq=6
+persist.baikal.low.CPULittleClusterMinFreq=9
+persist.baikal.low.CPUBigClusterMinFreq=13
+persist.baikal.low.GPUMinFreq=6
+persist.baikal.low.GPUMaxFreq=4
+persist.baikal.low.TASchedtuneBoost=18
+persist.baikal.low.TASilverBoost=18
+persist.baikal.low.TAGoldBoost=18
+
+persist.baikal.fixed.CPULittleClusterMaxFreq=0
+persist.baikal.fixed.CPUBigClusterMaxFreq=0
+persist.baikal.fixed.CPULittleClusterMinFreq=7
+persist.baikal.fixed.CPUBigClusterMinFreq=11
+persist.baikal.fixed.GPUMinFreq=4
+persist.baikal.fixed.GPUMaxFreq=0
+persist.baikal.fixed.TASchedtuneBoost=5
+persist.baikal.fixed.TASilverBoost=5
+persist.baikal.fixed.TAGoldBoost=5
+
+persist.baikal.sustain.CPULittleClusterMaxFreq=0
+persist.baikal.sustain.CPUBigClusterMaxFreq=0
+persist.baikal.sustain.CPULittleClusterMinFreq=7
+persist.baikal.sustain.CPUBigClusterMinFreq=12
+persist.baikal.sustain.GPUMinFreq=4
+persist.baikal.sustain.GPUMaxFreq=0
+persist.baikal.sustain.TASchedtuneBoost=7
+persist.baikal.sustain.TASilverBoost=7
+persist.baikal.sustain.TAGoldBoost=7
+
+persist.baikal.inter.CPULittleClusterMaxFreq=0
+persist.baikal.inter.CPUBigClusterMaxFreq=0
+persist.baikal.inter.CPULittleClusterMinFreq=9
+persist.baikal.inter.CPUBigClusterMinFreq=13
+persist.baikal.inter.GPUMinFreq=6
+persist.baikal.inter.GPUMaxFreq=0
+persist.baikal.inter.TASchedtuneBoost=8
+persist.baikal.inter.TASilverBoost=8
+persist.baikal.inter.TAGoldBoost=8
