@@ -150,10 +150,101 @@
     <ctl name="TAS256X ASI1 SEL LEFT" value="I2C offset" />
     <ctl name="TAS256X ASI Right Switch" value="0" />
     <ctl name="TAS256X ASI Left Switch" value="0" />
-    <ctl name="TAS256X RX MODE LEFT" value="Speaker" />
+
+    <!-- ctl name="TAS256X RX MODE LEFT" value="Speaker" />
     <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="56" />
+    <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="55" />
+    <ctl name="TAS256x Profile id" value="0" / -->
+
+    <!-- Tune -->
+    <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
+    <ctl name="TAS256X LIM MAX ATTN LEFT" value="0" />
+    <ctl name="TAS256X LIM INFLECTION POINT LEFT" value="0" />
+    <ctl name="TAS256X LIM ATTACT RATE LEFT" value="0" />
+    <ctl name="TAS256X LIM RELEASE RATE LEFT" value="7" />
+    <ctl name="TAS256X LIM ATTACK STEP LEFT" value="0" />
+    <ctl name="TAS256X LIM RELEASE STEP LEFT" value="3" />
+    <ctl name="TAS256X RX MODE LEFT" value="Speaker" />
+    <ctl name="TAS256X BOOST VOLTAGE LEFT" value="12" />
+    <ctl name="TAS256X BOOST CURRENT LEFT" value="56" />
     <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="54" />
-    <ctl name="TAS256x Profile id" value="0" />
+    <ctl name="TAS256X LIM MAX ATTN RIGHT" value="0" />
+    <ctl name="TAS256X LIM INFLECTION POINT RIGHT" value="0" />
+    <ctl name="TAS256X LIM ATTACT RATE RIGHT" value="0" />
+    <ctl name="TAS256X LIM RELEASE RATE RIGHT" value="7" />
+    <ctl name="TAS256X LIM ATTACK STEP RIGHT" value="0" />
+    <ctl name="TAS256X LIM RELEASE STEP RIGHT" value="3" />
+    <ctl name="TAS256X BOOST VOLTAGE RIGHT" value="12" />
+    <ctl name="TAS256X BOOST CURRENT RIGHT" value="56" />
+    <ctl name="TAS256X VBAT LPF LEFT" value="HZ_100" />
+    <ctl name="TAS256X VBAT LPF RIGHT" value="HZ_100" />
+    <ctl name="TAS256x Profile id" value="1" />
+    <ctl name="TAS25XX_SMARTPA_ENABLE" value="ENABLE" />
+    <ctl name="TAS25XX_ALGO_PROFILE" value="MUSIC" />
+    <ctl name="HiFi Filter" value="1" />
+    <ctl name="ASM Bit Width" value="24" />
+
+    <ctl name="Playback 0 Compress" value="0" />
+    <ctl name="Playback 1 Compress" value="0" />
+    <ctl name="Playback 4 Compress" value="0" />
+    <ctl name="Playback 13 Compress" value="0" />
+    <ctl name="Playback 16 Compress" value="0" />
+    <ctl name="Playback 27 Compress" value="0" />
+    <ctl name="Compress Playback 15 Volume" value="0" />
+    <ctl name="Compress Playback 29 Volume" value="0" />
+    <ctl name="Compress Playback 30 Volume" value="0" />
+    <ctl name="Compress Playback 31 Volume" value="0" />
+    <ctl name="Compress Playback 32 Volume" value="0" />
+    <ctl name="Compress Playback 41 Volume" value="0" />
+    <ctl name="Compress Playback 42 Volume" value="0" />
+    <ctl name="Compress Playback 43 Volume" value="0" />
+    <ctl name="Compress Playback 44 Volume" value="0" />
+    <ctl name="Compress Playback 45 Volume" value="0" />
+
+    <ctl name="HPHL Volume" value="20" />
+    <ctl name="HPHR Volume" value="20" />
+
+    <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
+    <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
+
+    <ctl name="Amp Output Level" value="22" />
+    <ctl name="RX_Softclip Enable" value="1" />
+
+    <ctl name="TERT_TDM_TX_0 Header Type" value="Default" />
+    <!-- ctl name="TERT_TDM_TX_1 Header Type" value="Entertainment" / -->
+    <ctl name="TERT_TDM_RX_0 Header Type" value="Default" />
+    <!-- ctl name="TERT_TDM_RX_1 Header Type" value="Entertainment" / -->
+
+    <ctl name="AFE Input Bit Format" value="S24_3LE" />
+    <ctl name="USB_AUDIO_RX Format" value="S24_3LE" />
+    <ctl name="USB_AUDIO_TX Format" value="S24_3LE" />
+    <ctl name="USB_AUDIO_RX SampleRate" value="KHZ_192" />
+    <ctl name="USB_AUDIO_TX SampleRate" value="KHZ_192" />
+    <ctl name="TERT_TDM_RX_0 Format" value="S24_3LE" />
+    <ctl name="TERT_TDM_RX_1 Format" value="S24_3LE" />
+    <ctl name="RX_CDC_DMA_RX_0 Format" value="S24_3LE" />
+    <ctl name="RX_CDC_DMA_RX_1 Format" value="S24_3LE" />
+    <ctl name="RX_CDC_DMA_RX_2 Format" value="S24_3LE" />
+    <ctl name="RX_CDC_DMA_RX_5 Format" value="S24_3LE" />
+    <ctl name="RX_CDC_DMA_RX_0 SampleRate" value="KHZ_192" />
+    <ctl name="RX_CDC_DMA_RX_1 SampleRate" value="KHZ_192" />
+    <ctl name="RX_CDC_DMA_RX_2 SampleRate" value="KHZ_192" />
+    <ctl name="RX_CDC_DMA_RX_5 SampleRate" value="KHZ_192" />
+    <ctl name="WSA_CDC_DMA_RX_0 Format" value="S24_3LE" />
+    <ctl name="WSA_CDC_DMA_RX_1 Format" value="S24_3LE" />
+    <ctl name="WSA_CDC_DMA_RX_0 SampleRate" value="KHZ_192" />
+    <ctl name="WSA_CDC_DMA_RX_1 SampleRate" value="KHZ_192" />
+    <ctl name="Display Port RX Bit Format" value="S24_3LE" />
+    <ctl name="Display Port1 RX Bit Format" value="S24_3LE" />
+    <ctl name="BT SampleRate" value="KHZ_96" />
+    <ctl name="BT SampleRate RX" value="KHZ_96" />
+    <ctl name="BT SampleRate TX" value="KHZ_96" />
+    <ctl name="EC Reference Bit Format" value="S24_LE" />
+    <ctl name="EC Reference Channels" value="Two" />
+    <!-- ctl name="RX_Softclip Enable" value="1" />
+    <ctl name="DS2 OnOff" value="1" / -->
+
+
     <!-- 24bit support end -->
     <!-- HFP start -->
     <ctl name="HFP_SLIM7_UL_HL Switch" value="0" />
@@ -275,7 +366,7 @@
     <!-- audio record compress end-->
 
     <!-- split a2dp -->
-    <ctl name="BT SampleRate" value="KHZ_8" />
+    <!-- ctl name="BT SampleRate" value="KHZ_8" / -->
     <ctl name="AFE Input Channels" value="Zero" />
     <ctl name="SLIM7_RX ADM Channels" value="Zero" />
     <!-- split a2dp end-->
@@ -373,8 +464,8 @@
     <ctl name="RX_RX0 Digital Volume" value="84" />
     <ctl name="RX_RX1 Digital Volume" value="84" />
     <ctl name="RX_RX2 Digital Volume" value="84" />
-    <ctl name="HPHL Volume" value="20" />
-    <ctl name="HPHR Volume" value="20" />
+    <!-- ctl name="HPHL Volume" value="20" />
+    <ctl name="HPHR Volume" value="20" / -->
     <ctl name="EAR SPKR PA Gain" value="G_DEFAULT" />
 
     <ctl name="TX_DEC0 Volume" value="84" />
@@ -397,8 +488,8 @@
     <ctl name="COMP8 Switch" value="0" />
 
     <!-- Headphone class-H mode -->
-    <ctl name="RX_HPH_PWR_MODE" value="ULP" />
-    <ctl name="RX HPH Mode" value="CLS_H_ULP" />
+    <!-- ctl name="RX_HPH_PWR_MODE" value="ULP" />
+    <ctl name="RX HPH Mode" value="CLS_H_ULP" / -->
 
     <!-- IIR/voice anc -->
     <ctl name="IIR0 Band1" id ="0" value="268435456" />
@@ -2824,7 +2915,7 @@
 <!--add for factory spk test-->
     <path name="speaker-left">
         <ctl name="TERT_MI2S_RX Channels" value="One" />
-        <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="56" />
+        <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
         <ctl name="TAS256X RX MODE RIGHT" value="Speaker" />
         <ctl name="TAS256X ASI1 SEL RIGHT" value="Left" />
         <ctl name="TAS256X ASI Left Switch" value="1" />
@@ -3036,8 +3127,8 @@
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX_COMP1 Switch" value="0" />
         <ctl name="RX_COMP2 Switch" value="0" />
-        <ctl name="HPHL_COMP Switch" value="1" />
-        <ctl name="HPHR_COMP Switch" value="1" />
+        <ctl name="HPHL_COMP Switch" value="0" />
+        <ctl name="HPHR_COMP Switch" value="0" />
         <ctl name="HPHL_RDAC Switch" value="1" />
         <ctl name="HPHR_RDAC Switch" value="1" />
     </path>
