@@ -203,6 +203,13 @@ on post-fs-data
     mkdir /data/vendor/dolby 0770 media media
     mkdir /data/vendor/multimedia 0775 system system
 
+    # Charger
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0664 /sys/class/power_supply/battery/input_suspend
+
+    chown system system /sys/devices/virtual/workqueue/cpumask
+    chmod 0664 /sys/devices/virtual/workqueue/cpumask
+
 on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
 

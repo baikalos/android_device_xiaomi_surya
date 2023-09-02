@@ -159,6 +159,13 @@ firmware_directories /vendor/firmware_mnt/image/
 # NPU device
 /dev/msm_npu             0644   system     system
 
+# Charger
+/sys/class/power_supply/battery/    input_suspend   0664    system  system
+
+# WQ_UNBOUND cpu mask
+/sys/devices/virtual/workqueue/     cpumask    0664   system     system
+
+
 # USB role switch
 /sys/class/dual_role_usb/*	data_role	0660	system	system
 /sys/class/dual_role_usb/*	power_role	0660	system	system
@@ -178,3 +185,5 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # Fingerprint
 /dev/goodix_fp            0660   system     system
+
+
