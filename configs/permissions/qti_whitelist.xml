@@ -38,6 +38,7 @@
     <allow-in-power-save package="com.qualcomm.qti.radioconfiginterface" />
     <allow-in-power-save package="com.qualcomm.qti.telephonyservice" />
     <allow-in-power-save package="com.qualcomm.qti.ims" />
+    <allow-in-power-save package="com.qualcomm.qti.poweroffalarm" />
     <allow-in-power-save package="com.google.android.ims" />
 
     <!-- These telephony applications need access to non-[System]SDK APIs -->
