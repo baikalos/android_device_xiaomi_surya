@@ -42,3 +42,6 @@
 
 # Vibrator
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_sm8350                            u:object_r:hal_vibrator_default_exec:s0
+
+
+/sys/devices/virtual/workqueue/cpumask                            u:object_r:vendor_latency_device:s0

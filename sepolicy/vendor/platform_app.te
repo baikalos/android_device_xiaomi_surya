@@ -11,3 +11,5 @@ allow platform_app vendor_sysfs_kgsl:file r_file_perms;
 allow platform_app vendor_sysfs_battery_supply:dir search;
 allow platform_app vendor_sysfs_battery_supply:file r_file_perms;
 
+allow platform_app sysfs_hbm:file rw_file_perms;
+allow platform_app sysfs_cabc:file rw_file_perms;
