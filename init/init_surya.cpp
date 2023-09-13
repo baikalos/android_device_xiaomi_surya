@@ -75,33 +75,32 @@ void set_ro_product_prop(const std::string &prop, const std::string &value) {
 };
 
 void vendor_load_properties() {
-    std::string region;
-    std::string hardware_revision;
-    std::string hwname;
-    std::string build_type;
-    region = GetProperty("ro.boot.hwc", "GLOBAL");
-    hardware_revision = GetProperty("ro.boot.hwversion", "UNKNOWN");
-    hwname = GetProperty("ro.boot.hwname", "surya");
-    build_type = GetProperty("ro.build.type", "userdebug");
+    std::string hardware_revision = GetProperty("ro.boot.hwversion", "UNKNOWN");
+    std::string hwname = GetProperty("ro.boot.hwname", "surya");
+    std::string region = GetProperty("ro.boot.hwc", "INT");
+    std::string build_type = GetProperty("ro.build.type", "user");
 
     std::string model;
-    std::string name;
     std::string device;
     std::string fingerprint;
-    std::string flavor;
+    std::string mod_device;
     std::string description;
+    std::string name;
     std::string marketname;
+    std::string flavor;
 
     if (hwname == "karna") {
         model = "M2007J20CI";
-        name ="karna_global";
+        name = "karna_global";
         device = "karna";
+        mod_device = "karna_global";
         fingerprint = "POCO/karna_global/karna:12/RKQ1.211019.001/V14.0.1.0.SJGMIXM:user/release-keys";
         description = "karna_global-user 12 RKQ1.211019.001 V14.0.1.0.SJGMIXM release-keys";
         marketname = "POCO X3";
     } else {
         name = "surya_global";
         device = "surya";
+        mod_device = "surya_global";
         fingerprint = "POCO/surya_global/surya:12/RKQ1.211019.001/V14.0.1.0.SJGMIXM:user/release-keys";
         description = "surya_global-user 12 RKQ1.211019.001 V14.0.1.0.SJGMIXM release-keys";
         marketname = "POCO X3 NFC";
@@ -115,14 +114,18 @@ void vendor_load_properties() {
     flavor = device + "-" + build_type;
 
     set_ro_build_prop("fingerprint", fingerprint);
+    set_ro_product_prop("brand", "POCO");
     set_ro_product_prop("device", device);
+    set_ro_product_prop("product", device);
     set_ro_product_prop("model", model);
     set_ro_product_prop("name", name);
-    property_override("ro.build.description", description.c_str());
-    property_override("ro.build.flavor", flavor.c_str());
     property_override("ro.build.product", device.c_str());
+    property_override("ro.build.board", device.c_str());
+    property_override("ro.build.description", description.c_str());
+    property_override("ro.product.mod_device", mod_device.c_str());
     property_override("ro.boot.hardware.revision", hardware_revision.c_str());
-    property_override("ro.boot.hardware.sku", device.c_str());
     property_override("bluetooth.device.default_name", marketname.c_str());
     property_override("vendor.usb.product_string", marketname.c_str());
+    property_override("ro.build.flavor", flavor.c_str());
+    property_override("ro.boot.hardware.sku", device.c_str());
 }

@@ -104,6 +104,9 @@ on property:init.svc.vendor.charger=running
     start vendor.power_off_alarm
 
 on enable-low-power
+    # Reinit lmkd to reconfigure lmkd properties
+    setprop lmkd.reinit 1
+
     # Setting b.L scheduler parameters
     write /proc/sys/kernel/sched_downmigrate 85
     write /proc/sys/kernel/sched_upmigrate 95
@@ -220,8 +223,8 @@ on enable-low-power
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sde/queue/nr_requests 128
 
-    # Set swappiness to 100
-    write /proc/sys/vm/swappiness 100
+    # Set swappiness to 60
+    write /proc/sys/vm/swappiness 60
 
     # Set cpuset parameters
 
@@ -233,9 +236,9 @@ on enable-low-power
 
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-5,7
-    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/background/cpus 4-5
     write /dev/cpuset/system-background/cpus 0-5
-    write /dev/cpuset/restricted/cpus 0-5
+    write /dev/cpuset/restricted/cpus 2-5
 
     # Post-setup services
     setprop vendor.post_boot.parsed 1
@@ -251,6 +254,12 @@ service vendor.charger /system/bin/charger
     group system graphics input
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
+
+service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
+    class core
+    user root
+    group root
+    task_profiles ServiceCapacityLow
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core

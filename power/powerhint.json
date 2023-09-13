@@ -530,6 +530,9 @@
     { "PowerHint": "INTERACTIVE", "Node": "CPULittleClusterCoreCtl", "Duration": 0, "Value": "1", "OverrideProperty": "persist.baikal.inter.CPULittleClusterCoreCtl" },
     { "PowerHint": "INTERACTIVE", "Node": "CPUBigClusterCoreCtl", "Duration": 0, "Value": "1", "OverrideProperty": "persist.baikal.inter.CPUBigClusterCoreCtl" },
 
+    { "PowerHint": "INTERACTIVE", "Node": "TopAppCpuset", "Duration": 0, "Value": "0-7" },
+    { "PowerHint": "INTERACTIVE", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-5" },
+    { "PowerHint": "INTERACTIVE", "Node": "CPUBigClusterMinCpus", "Duration": 0, "Value": "0" },
 
     { "PowerHint": "SUSTAINED_PERFORMANCE", "Node": "PowerHALMainState", "Duration": 0, "Value": "SUSTAINED_PERFORMANCE" },
     { "PowerHint": "SUSTAINED_PERFORMANCE", "Node": "WQCpuMask", "Duration": 0, "Value": "ff" },
@@ -549,7 +552,6 @@
     { "PowerHint": "SUSTAINED_PERFORMANCE", "Node": "CPULittleClusterCoreCtl", "Duration": 0, "Value": "0" },
     { "PowerHint": "SUSTAINED_PERFORMANCE", "Node": "CPUBigClusterCoreCtl", "Duration": 0, "Value": "0" },
     { "PowerHint": "SUSTAINED_PERFORMANCE", "Node": "PMQoSCpuDmaLatency", "Duration": 0, "Value": "0" },
-
 
     { "PowerHint": "FIXED_PERFORMANCE", "Node": "PowerHALMainState", "Duration": 0, "Value": "FIXED_PERFORMANCE" },
     { "PowerHint": "FIXED_PERFORMANCE", "Node": "WQCpuMask", "Duration": 0, "Value": "ff" },
@@ -630,7 +632,6 @@
     { "PowerHint": "LAUNCH", "Node": "CPUBigClusterMaxFreq","Duration": 4000,"Value": "9999999"},
     { "PowerHint": "LAUNCH", "Node": "CPULittleClusterMaxFreq","Duration": 4000,"Value": "9999999"},
     { "PowerHint": "LAUNCH", "Node": "WQCpuMask", "Duration": 0, "Value": "ff" },
-
 
     { "PowerHint": "LAUNCH", "Node": "TopAppCpuset", "Duration": 0, "Value": "0-7" },
     { "PowerHint": "LAUNCH", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-7" },
