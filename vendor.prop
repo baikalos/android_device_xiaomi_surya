@@ -1,7 +1,7 @@
 # Audio
 aaudio.hw_burst_min_usec=2000
 aaudio.mmap_exclusive_policy=2
-aaudio.mmap_policy=1
+aaudio.mmap_policy=2
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio.offload.min.duration.secs=40
@@ -11,13 +11,18 @@ persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.hifi=false
 persist.vendor.audio.ras.enabled=false
+persist.vendor.audio.ring.filter.mask=0
 persist.vendor.audio.spv3.enable=true
 persist.vendor.audio.voicecall.speaker.stereo=true
 ro.af.client_heap_size_kbyte=7168
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=11
 ro.vendor.audio.sdk.fluencetype=none
+ro.vendor.audio.sfx.scenario=true
+ro.vendor.audio.soundfx.type=mi
+ro.vendor.audio.soundfx.usb=true
 vendor.audio.adm.buffering.ms=6
 vendor.audio.feature.a2dp_offload.enable=true
 vendor.audio.feature.afe_proxy.enable=true
@@ -66,7 +71,7 @@ vendor.audio.hal.boot.timeout.ms=20000
 vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=3
 vendor.audio_hal.period_size=192
-vendor.audio.hw.aac.encoder=false
+vendor.audio.hw.aac.encoder=true
 vendor.audio.offload.buffer.size.kb=32
 vendor.audio.offload.gapless.enabled=true
 vendor.audio.offload.multiaac.enable=true
@@ -127,9 +132,9 @@ persist.vendor.camera.logInfoMask=false
 persist.vendor.camera.perflock.enable=0
 persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.crdroid.faceunlock
 vendor.camera.aux.packagelist=com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev,com.crdroid.faceunlock
-ro.miui.build.region=IN
+#ro.miui.build.region=IN
 ro.miui.notch=1
-ro.product.mod_device=surya_global
+#ro.product.mod_device=surya_global
 
 
 # Chipset
@@ -151,7 +156,7 @@ dalvik.vm.systemuicompilerfilter=speed
 # Data modules
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
-#ro.telephony.iwlan_operation_mode=legacy
+ro.telephony.iwlan_operation_mode=legacy
 
 # DPM
 persist.vendor.dpm.feature=1
@@ -164,7 +169,7 @@ ro.sf.blurs_are_expensive=1
 
 #renderthread.skia.reduceopstasksplitting=true
 #debug.renderengine.backend=skiaglthreaded
-debug.hwui.skia_atrace_enabled=true
+#debug.hwui.skia_atrace_enabled=true
 
 #debug.sf.use_phase_offsets_as_durations=1
 #debug.sf.late.sf.duration=10500000
@@ -174,12 +179,12 @@ debug.hwui.skia_atrace_enabled=true
 #debug.sf.earlyGl.sf.duration=13500000
 #debug.sf.earlyGl.app.duration=21000000
 debug.sf.enable_hwc_vds=1
-debug.sf.disable_backpressure=1
-debug.sf.enable_gl_backpressure=0
+#debug.sf.disable_backpressure=1
+#debug.sf.enable_gl_backpressure=0
 debug.sf.predict_hwc_composition_strategy=0
-debug.sf.disable_client_composition_cache=1
-debug.sf.frame_rate_multiple_threshold=120
-debug.sf.treat_170m_as_sRGB=1
+#debug.sf.disable_client_composition_cache=1
+#debug.sf.frame_rate_multiple_threshold=120
+#debug.sf.treat_170m_as_sRGB=1
 
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
@@ -199,11 +204,12 @@ vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
 vendor.display.disable_ui_3d_tonemap=1
-vendor.display.enable_force_split=1
+#vendor.display.enable_force_split=1
 vendor.display.enable_default_color_mode=1
 vendor.display.enable_null_display=0
 vendor.display.enable_optimize_refresh=1
 vendor.display.qdcm.mode_combine=1
+vendor.display.qdcm.disable_factory_mode=1
 
 # Display - Dynamic refresh rate
 ro.surface_flinger.set_display_power_timer_ms=3000
@@ -249,9 +255,9 @@ debug.stagefright.omx_default_rank=0
 vendor.netflix.bsp_rev=Q6150-17263-1
 
 # Suspend properties
-suspend.short_suspend_threshold_millis=2000
-suspend.short_suspend_backoff_enabled=true
-suspend.max_sleep_time_millis=40000
+#suspend.short_suspend_threshold_millis=2000
+#suspend.short_suspend_backoff_enabled=true
+#suspend.max_sleep_time_millis=40000
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
@@ -281,34 +287,34 @@ ro.telephony.default_network=22,22
 wifi.aware.interface=wifi-aware0
 
 # ZRAM
-ro.zram.mark_idle_delay_mins=60
-ro.zram.first_wb_delay_mins=1440
-ro.zram.periodic_wb_delay_hours=24
+#ro.zram.mark_idle_delay_mins=60
+#ro.zram.first_wb_delay_mins=1440
+#ro.zram.periodic_wb_delay_hours=24
 
 # Zygote
-zygote.critical_window.minute=10
+#zygote.critical_window.minute=10
 
 # Touch Hax 
-touch.size.scale=1
-touch.size.bias=0
-touch.size.isSummed=0
-touch.pressure.scale=0.001
-touch.distance.calibration=none
-touch.distance.scale=0
-touch.coverage.calibration=box
-touch.gestureMode=spots
-MultitouchSettleInterval=1ms
-MultitouchMinDistance=1px
-TapInterval=1ms
-TapSlop=1px
+#touch.size.scale=1
+#touch.size.bias=0
+#touch.size.isSummed=0
+#touch.pressure.scale=0.001
+#touch.distance.calibration=none
+#touch.distance.scale=0
+#touch.coverage.calibration=box
+#touch.gestureMode=spots
+#MultitouchSettleInterval=1ms
+#MultitouchMinDistance=1px
+#TapInterval=1ms
+#TapSlop=1px
 
 # Fling Velocity
-ro.min.fling_velocity=160
-ro.max.fling_velocity=20000
-ro.vendor.qti.cgroup_follow.enable=true 
-persist.vendor.qti.inputopts.enable=true 
-persist.vendor.qti.inputopts.movetouchslop=0.6 
-ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
+#ro.min.fling_velocity=160
+#ro.max.fling_velocity=20000
+#ro.vendor.qti.cgroup_follow.enable=true 
+#persist.vendor.qti.inputopts.enable=true 
+#persist.vendor.qti.inputopts.movetouchslop=0.6 
+#ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
 
 
 #Bluetooth
@@ -371,9 +377,9 @@ persist.baikal.render.CPULittleClusterMinFreq=9
 persist.baikal.render.CPUBigClusterMinFreq=13
 persist.baikal.render.GPUMinFreq=3
 persist.baikal.render.GPUMaxFreq=0
-persist.baikal.render.TASchedtuneBoost=7
-persist.baikal.render.TASilverBoost=7
-persist.baikal.render.TAGoldBoost=7
+persist.baikal.render.TASchedtuneBoost=15
+persist.baikal.render.TASilverBoost=0
+persist.baikal.render.TAGoldBoost=0
 
 persist.baikal.boost.CPULittleClusterMaxFreq=0
 persist.baikal.boost.CPUBigClusterMaxFreq=0
@@ -381,9 +387,9 @@ persist.baikal.boost.CPULittleClusterMinFreq=4
 persist.baikal.boost.CPUBigClusterMinFreq=13
 persist.baikal.boost.GPUMinFreq=6
 persist.baikal.boost.GPUMaxFreq=0
-persist.baikal.boost.TASchedtuneBoost=7
-persist.baikal.boost.TASilverBoost=7
-persist.baikal.boost.TAGoldBoost=7
+persist.baikal.boost.TASchedtuneBoost=8
+persist.baikal.boost.TASilverBoost=8
+persist.baikal.boost.TAGoldBoost=8
 
 persist.baikal.idle.CPULittleClusterMaxFreq=4
 persist.baikal.idle.CPUBigClusterMaxFreq=6
