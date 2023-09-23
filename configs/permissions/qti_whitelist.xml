@@ -37,7 +37,8 @@
     <allow-in-power-save package="com.qualcomm.qti.ims" />
     <allow-in-power-save package="com.qualcomm.qti.radioconfiginterface" />
     <allow-in-power-save package="com.qualcomm.qti.telephonyservice" />
-    <allow-in-power-save package="com.qualcomm.qti.ims" />
+    <allow-in-power-save package="com.qualcomm.qti.qtidataservices" />
+    <allow-in-power-save package="com.qualcomm.qti.cne" />
     <allow-in-power-save package="com.qualcomm.qti.poweroffalarm" />
     <allow-in-power-save package="com.google.android.ims" />
 
@@ -45,10 +46,13 @@
     <hidden-api-whitelisted-app package="com.qualcomm.qcrilmsgtunnel" />
     <hidden-api-whitelisted-app package="com.qualcomm.atfwd" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.telephonyservice" />
+    <hidden-api-whitelisted-app package="com.qualcomm.qti.qtidataservices" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.radioconfiginterface" />
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteclient" />
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteserver" />
     <hidden-api-whitelisted-app package="com.qualcomm.wfd.client" />
     <hidden-api-whitelisted-app package="com.qualcomm.wfd.service" />
     <hidden-api-whitelisted-app package="org.codeaurora.ims" />
+
+    <hidden-api-whitelisted-app package="com.android.bluetooth" />
 </config>
