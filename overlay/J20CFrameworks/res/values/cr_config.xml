@@ -22,4 +22,6 @@
     <!-- Whether to force enable multi resolution configuration for camera -->
     <bool name="config_forceMultiResolution">true</bool>
 
+    <!-- bool name="config_interactiveForDoze">true</bool -->
+
 </resources>
