@@ -150,35 +150,16 @@
     <ctl name="TAS256X ASI1 SEL LEFT" value="I2C offset" />
     <ctl name="TAS256X ASI Right Switch" value="0" />
     <ctl name="TAS256X ASI Left Switch" value="0" />
-
-    <!-- ctl name="TAS256X RX MODE LEFT" value="Speaker" />
-    <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="56" />
-    <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="55" />
-    <ctl name="TAS256x Profile id" value="0" / -->
-
-    <!-- Tune -->
-    <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
-    <ctl name="TAS256X LIM MAX ATTN LEFT" value="0" />
-    <ctl name="TAS256X LIM INFLECTION POINT LEFT" value="0" />
-    <ctl name="TAS256X LIM ATTACT RATE LEFT" value="0" />
-    <ctl name="TAS256X LIM RELEASE RATE LEFT" value="7" />
-    <ctl name="TAS256X LIM ATTACK STEP LEFT" value="0" />
-    <ctl name="TAS256X LIM RELEASE STEP LEFT" value="3" />
     <ctl name="TAS256X RX MODE LEFT" value="Speaker" />
-    <ctl name="TAS256X BOOST VOLTAGE LEFT" value="12" />
-    <ctl name="TAS256X BOOST CURRENT LEFT" value="55" />
+    
+    <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
     <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="54" />
-    <ctl name="TAS256X LIM MAX ATTN RIGHT" value="0" />
-    <ctl name="TAS256X LIM INFLECTION POINT RIGHT" value="0" />
-    <ctl name="TAS256X LIM ATTACT RATE RIGHT" value="0" />
-    <ctl name="TAS256X LIM RELEASE RATE RIGHT" value="7" />
-    <ctl name="TAS256X LIM ATTACK STEP RIGHT" value="0" />
-    <ctl name="TAS256X LIM RELEASE STEP RIGHT" value="3" />
-    <ctl name="TAS256X BOOST VOLTAGE RIGHT" value="12" />
-    <ctl name="TAS256X BOOST CURRENT RIGHT" value="54" />
+    <ctl name="TAS256x Profile id" value="0" />
+
     <ctl name="TAS256X VBAT LPF LEFT" value="HZ_100" />
     <ctl name="TAS256X VBAT LPF RIGHT" value="HZ_100" />
-    <ctl name="TAS256x Profile id" value="1" />
+    
+    <!-- ctl name="TAS256x Profile id" value="1" / -->
     <ctl name="TAS25XX_SMARTPA_ENABLE" value="ENABLE" />
     <ctl name="TAS25XX_ALGO_PROFILE" value="MUSIC" />
     <!-- ctl name="HiFi Filter" value="0" / -->
@@ -201,49 +182,8 @@
     <ctl name="Compress Playback 44 Volume" value="0" />
     <ctl name="Compress Playback 45 Volume" value="0" />
 
-    <!-- ctl name="HPHL Volume" value="24" />
-    <ctl name="HPHR Volume" value="24" / -->
-
     <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
     <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
-
-    <!-- ctl name="Amp Output Level" value="22" />
-    <ctl name="RX_Softclip Enable" value="1" / -->
-
-    <ctl name="TERT_TDM_TX_0 Header Type" value="Default" />
-    <!-- ctl name="TERT_TDM_TX_1 Header Type" value="Entertainment" / -->
-    <ctl name="TERT_TDM_RX_0 Header Type" value="Default" />
-    <!-- ctl name="TERT_TDM_RX_1 Header Type" value="Entertainment" / -->
-
-    <ctl name="AFE Input Bit Format" value="S24_3LE" />
-    <ctl name="USB_AUDIO_RX Format" value="S24_3LE" />
-    <ctl name="USB_AUDIO_TX Format" value="S24_3LE" />
-    <ctl name="USB_AUDIO_RX SampleRate" value="KHZ_192" />
-    <ctl name="USB_AUDIO_TX SampleRate" value="KHZ_192" />
-    <ctl name="TERT_TDM_RX_0 Format" value="S24_3LE" />
-    <ctl name="TERT_TDM_RX_1 Format" value="S24_3LE" />
-    <ctl name="RX_CDC_DMA_RX_0 Format" value="S24_3LE" />
-    <ctl name="RX_CDC_DMA_RX_1 Format" value="S24_3LE" />
-    <ctl name="RX_CDC_DMA_RX_2 Format" value="S24_3LE" />
-    <ctl name="RX_CDC_DMA_RX_5 Format" value="S24_3LE" />
-    <ctl name="RX_CDC_DMA_RX_0 SampleRate" value="KHZ_192" />
-    <ctl name="RX_CDC_DMA_RX_1 SampleRate" value="KHZ_192" />
-    <ctl name="RX_CDC_DMA_RX_2 SampleRate" value="KHZ_192" />
-    <ctl name="RX_CDC_DMA_RX_5 SampleRate" value="KHZ_192" />
-    <ctl name="WSA_CDC_DMA_RX_0 Format" value="S24_3LE" />
-    <ctl name="WSA_CDC_DMA_RX_1 Format" value="S24_3LE" />
-    <ctl name="WSA_CDC_DMA_RX_0 SampleRate" value="KHZ_192" />
-    <ctl name="WSA_CDC_DMA_RX_1 SampleRate" value="KHZ_192" />
-    <ctl name="Display Port RX Bit Format" value="S24_3LE" />
-    <ctl name="Display Port1 RX Bit Format" value="S24_3LE" />
-    <ctl name="BT SampleRate" value="KHZ_96" />
-    <ctl name="BT SampleRate RX" value="KHZ_96" />
-    <ctl name="BT SampleRate TX" value="KHZ_96" />
-    <ctl name="EC Reference Bit Format" value="S24_LE" />
-    <ctl name="EC Reference Channels" value="Two" />
-    <!-- ctl name="RX_Softclip Enable" value="1" / -->
-    <ctl name="DS2 OnOff" value="1" />
-
 
     <!-- 24bit support end -->
     <!-- HFP start -->
