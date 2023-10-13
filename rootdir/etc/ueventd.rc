@@ -100,6 +100,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/msm_rtac             0660   system     audio
 /dev/avtimer              0660   system     audio
 
+/dev/cpu_dma_latency      0660   root       system
+/sys/power/keep_awake     0660   root       system
+
 # NFC permissions
 /dev/nq-nci               0660    nfc         nfc
 

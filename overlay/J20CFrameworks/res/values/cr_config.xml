@@ -23,5 +23,6 @@
     <bool name="config_forceMultiResolution">true</bool>
 
     <!-- bool name="config_interactiveForDoze">true</bool -->
+    <bool name="config_superSaverAvailable">true</bool>
 
 </resources>

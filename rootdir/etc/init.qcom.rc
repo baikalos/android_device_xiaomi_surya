@@ -200,6 +200,12 @@ on post-fs-data
     # Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
 
+    chown root system /dev/cpu_dma_latency
+    chmod 0660 /dev/cpu_dma_latency
+
+    chown root system /sys/power/keep_awake
+    chmod 0660 /sys/power/keep_awake
+
     setprop vold.post_fs_data_done 1
 
     # Dolby
