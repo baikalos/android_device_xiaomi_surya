@@ -71,3 +71,20 @@ on property:persist.baikal.srv.afx=0
     setprop persist.baikal.eff.shoebox 1
 
     setprop sys.audio.restart.hal 1
+
+
+# Logcat dump daemon, dumps logs to logdump partition
+service logrecoder /system/bin/logcat -b all -v threadtime --file=/storage/emulated/0/BaikalOS/logrecorder.txt
+    class core
+    writepid /dev/cpuset/system-background/tasks
+    disabled
+
+on property:baikal.log.record=0
+    stop logrecoder
+
+on property:baikal.log.record=1
+    enable logrecoder
+    start logrecoder
+
+on property:sys.user.0.ce_available=true
+    mkdir "/storage/emulated/0/BaikalOS"
