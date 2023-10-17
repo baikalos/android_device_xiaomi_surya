@@ -8,7 +8,30 @@
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
 
-    <bool name="doze_suspend_display_state_supported">true</bool>
+    <bool name="doze_suspend_display_state_supported">false</bool>
 
     <string name = "doze_brightness_sensor_type" translatable="false" >android.sensor.light</string>
+
+    <integer-array name="config_doze_brightness_sensor_to_brightness">
+        <item>1</item>    <!-- 0.0: Never used -->
+        <item>10</item>    <!-- 1.0: Never used -->
+        <item>15</item>    <!-- 2.0: Never used -->
+        <item>25</item>    <!-- 3.0: Never used -->
+        <item>50</item>    <!-- 3.0: Never used -->
+        <item>100</item>    <!-- 4.0: Bright environment -->
+        <item>180</item>    <!-- 4.0: Bright environment -->
+        <item>255</item>     <!-- 5.0: Dark environment -->
+    </integer-array>
+
+    <integer-array name="config_doze_brightness_sensor_to_brightness_thresholds">
+        <item>1</item>    <!-- 0.0: Night used -->
+        <item>10</item>    <!-- 1.0: Dark used -->
+        <item>30</item>    <!-- 2.0: Low used -->
+        <item>100</item>    <!-- 3.0: Medium used -->
+        <item>200</item>    <!-- 3.0: Medium used -->
+        <item>800</item>    <!-- 4.0: Bright environment -->
+        <item>1400</item>    <!-- 4.0: Bright environment -->
+        <item>2000</item>   <!-- 5.0: SuperBright environment -->
+    </integer-array>
+
 </resources>

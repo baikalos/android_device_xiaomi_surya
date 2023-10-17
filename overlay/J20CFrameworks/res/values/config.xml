@@ -294,7 +294,10 @@
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">15</integer>
+    <integer name="config_screenBrightnessDoze">20</integer>
+
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -650,7 +653,7 @@
 
     <bool name="config_displayBrightnessBucketsInDoze">true</bool>
 
-    <bool name="config_allowAutoBrightnessWhileDozing">true</bool>
+    <!--bool name="config_allowAutoBrightnessWhileDozing">true</bool -->
 
     <!-- Whether or not to enable the lock screen entry point for the QR code scanner. -->
     <bool name="config_enableQrCodeScannerOnLockScreen">true</bool>
