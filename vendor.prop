@@ -321,6 +321,8 @@ wifi.aware.interface=wifi-aware0
 #bluetooth.sco.disable_enhanced_connection=1
 #bluetooth.le.disable_apcf_extended_features=1
 
+baikalos.fuse.passthrough=true
+
 # Silver Cluster
 # 9999999 - 0
 # 1708800 - 1
