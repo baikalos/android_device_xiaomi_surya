@@ -19,6 +19,11 @@ $(call inherit-product, vendor/dolby/dolby.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+# Dex/ART optimization
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
+USE_DEX2OAT_DEBUG := false
+
 # Use FUSE passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
@@ -602,10 +607,10 @@ PRODUCT_PACKAGES += \
 #    WfdCommon
 
 # ZRAM writeback
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.zram.mark_idle_delay_mins=60 \
-    ro.zram.first_wb_delay_mins=1440 \
-    ro.zram.periodic_wb_delay_hours=24
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.zram.mark_idle_delay_mins=60 \
+#    ro.zram.first_wb_delay_mins=1440 \
+#    ro.zram.periodic_wb_delay_hours=24
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/thermal-engine-sdm732-arvr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-sdm732-arvr.conf \

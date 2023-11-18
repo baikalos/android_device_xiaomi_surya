@@ -50,7 +50,7 @@ wifi.interface=wlan0
 # Telephony
 # Disable handling audio direction changes on IMS calls.
 ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
-
+ro.telephony.block_binder_thread_on_incoming_calls=false
 
 #Baikal dex2oat
 pm.dexopt.install=verify
@@ -58,3 +58,4 @@ pm.dexopt.install-fast=verify
 pm.dexopt.inactive=speed-profile
 pm.dexopt.cmdline=speed-profile
 pm.dexopt.boot-after-ota=verify
+
