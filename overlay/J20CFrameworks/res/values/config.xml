@@ -667,5 +667,6 @@
     <!-- Boolean indicating if current platform supports HFP inband ringing -->
     <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
 
+    <bool name="config_validLayoutRequesters">false</bool>
 
 </resources>
