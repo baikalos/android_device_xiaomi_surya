@@ -46,13 +46,11 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.bluetooth.audio-impl \
     
-    
-#    sound_trigger.primary.sm6150
-
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.usb.default \
-    audio.r_submix.default
+    audio.r_submix.default \
+    sound_trigger.primary.sm6150
 
 PRODUCT_PACKAGES += \
     libqcompostprocbundle \

@@ -135,6 +135,7 @@ vendor.camera.aux.packagelist=com.android.camera,org.lineageos.aperture,org.line
 #ro.miui.build.region=IN
 ro.miui.notch=1
 #ro.product.mod_device=surya_global
+ro.com.google.lens.oem_camera_package=com.android.camera
 
 
 # Chipset
@@ -215,12 +216,12 @@ vendor.display.qdcm.mode_combine=1
 vendor.display.qdcm.disable_factory_mode=1
 
 # Display - Dynamic refresh rate
-ro.surface_flinger.set_display_power_timer_ms=3000
-ro.surface_flinger.set_idle_timer_ms=900
-ro.surface_flinger.set_touch_timer_ms=2000
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.set_idle_timer_ms=80
+ro.surface_flinger.set_touch_timer_ms=200
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
-vendor.display.idle_time=0
-vendor.display.idle_time_inactive=0
+#vendor.display.idle_time=0
+#vendor.display.idle_time_inactive=0
 
 # Display - Set color mode to Adaptive by default
 persist.sys.sf.color_saturation=1.0
