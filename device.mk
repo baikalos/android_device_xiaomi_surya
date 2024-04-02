@@ -14,7 +14,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, vendor/xiaomi/surya/surya-vendor.mk)
 
 # Dolby Atmos
-$(call inherit-product, vendor/dolby/dolby.mk)
+#$(call inherit-product, vendor/dolby/dolby.mk)
+$(call inherit-product, vendor/dolby_op/dolby.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -50,7 +51,8 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.usb.default \
     audio.r_submix.default \
-    sound_trigger.primary.sm6150
+
+#    sound_trigger.primary.sm6150
 
 PRODUCT_PACKAGES += \
     libqcompostprocbundle \
@@ -82,7 +84,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
-    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
+    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
+    frameworks/native/data/etc/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml
+
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -100,6 +104,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml
+
+# Spatial Audio: optimize spatializer effect
+PRODUCT_PROPERTY_OVERRIDES += \
+       audio.spatializer.effect.util_clamp_min=300
+
+# Spatial Audio: declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.audio.spatializer_enabled=true \
+       ro.audio.headtracking_enabled=true \
+       ro.audio.spatializer_transaural_enabled_default=false \
+       ro.audio.spatializer_binaural_enabled_default=false \
+       persist.vendor.audio.spatializer.speaker_enabled=true
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
