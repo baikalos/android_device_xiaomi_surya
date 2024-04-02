@@ -421,16 +421,6 @@ persist.baikal.inter.TAGoldBoost=8
 persist.baikal.inter.CPULittleClusterCoreCtl=1
 persist.baikal.inter.CPUBigClusterCoreCtl=1
 
-
-
-
-
-
-
-
-
-
-
 #etete45t
 
 ro.vendor.radio.features_common=3
