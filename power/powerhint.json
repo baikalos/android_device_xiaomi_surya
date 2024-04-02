@@ -396,6 +396,55 @@
       "ResetOnInit": true
     },
     {
+      "Name": "BackgroundCpuset",
+      "Path": "/dev/cpuset/background/cpus",
+      "Values": [
+        "0-7",
+        "0-6",
+        "0-5,7",
+        "0-5",
+        "0-3",
+        "2-5",
+        "4-5",
+        "2-3",
+        "0-1",
+      ],
+      "DefaultIndex": 6,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "RestrictedCpuset",
+      "Path": "/dev/cpuset/restricted/cpus",
+      "Values": [
+        "0-7",
+        "0-6",
+        "0-5,7",
+        "0-5",
+        "0-3",
+        "2-5",
+        "2-3",
+        "0-1",
+      ],
+      "DefaultIndex": 5,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "SystemBackgroundCpuset",
+      "Path": "/dev/cpuset/system-background/cpus",
+      "Values": [
+        "0-7",
+        "0-6",
+        "0-5,7",
+        "0-5",
+        "0-3",
+        "2-5",
+        "2-3",
+        "0-1",
+      ],
+      "DefaultIndex": 3,
+      "ResetOnInit": true
+    },
+    {
       "Name": "EnergyAware",
       "Path": "/proc/sys/kernel/sched_energy_aware",
       "Values": [
@@ -532,20 +581,40 @@
       "Values": [
         "75",
         "85",
-        "95"
+        "90",
+        "91",
+        "92",
+        "93",
+        "94",
+        "95",
+        "96",
+        "97",
+        "98",
+        "99",
+        "100"
       ],
-      "DefaultIndex": 1,
+      "DefaultIndex": 4,
       "ResetOnInit": true
     },
     {
       "Name": "sched_upmigrate",
       "Path": "/proc/sys/kernel/sched_upmigrate",
       "Values": [
+        "75",
         "85",
+        "90",
+        "91",
+        "92",
+        "93",
+        "94",
         "95",
-        "99"
+        "96",
+        "97",
+        "98",
+        "99",
+        "100"
       ],
-      "DefaultIndex": 1,
+      "DefaultIndex": 9,
       "ResetOnInit": true
     }
   ],
@@ -569,8 +638,8 @@
     { "PowerHint": "INTERACTIVE", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-5,7" },
     { "PowerHint": "INTERACTIVE", "Node": "CPUBigClusterMinCpus", "Duration": 0, "Value": "0" },
 
-    { "PowerHint": "INTERACTIVE", "Node": "sched_downmigrate", "Duration": 0, "Value": "85"},
-    { "PowerHint": "INTERACTIVE", "Node": "sched_upmigrate", "Duration": 0, "Value": "95"},
+    { "PowerHint": "INTERACTIVE", "Node": "sched_downmigrate", "Duration": 0, "Value": "92"},
+    { "PowerHint": "INTERACTIVE", "Node": "sched_upmigrate", "Duration": 0, "Value": "97"},
 
 
     { "PowerHint": "SUSTAINED_PERFORMANCE", "Node": "PowerHALMainState", "Duration": 0, "Value": "SUSTAINED_PERFORMANCE" },
@@ -639,10 +708,13 @@
     { "PowerHint": "LOW_POWER", "Node": "TAGoldBoost", "Duration": 0, "Value": "0", "OverrideProperty": "persist.baikal.low.TAGoldBoost" },
 
     { "PowerHint": "LOW_POWER", "Node": "TopAppCpuset", "Duration": 0, "Value": "0-5" },
-    { "PowerHint": "LOW_POWER", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-5" },
+    { "PowerHint": "LOW_POWER", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-3" },
+    { "PowerHint": "LOW_POWER", "Node": "BackgroundCpuset", "Duration": 0, "Value": "2-3" },
+    { "PowerHint": "LOW_POWER", "Node": "RestrictedCpuset", "Duration": 0, "Value": "2-3" },
+    { "PowerHint": "LOW_POWER", "Node": "SystemBackgroundCpuset", "Duration": 0, "Value": "0-1" },
     { "PowerHint": "LOW_POWER", "Node": "CPUBigClusterMinCpus", "Duration": 0, "Value": "0" },
 
-    { "PowerHint": "LOW_POWER", "Node": "sched_downmigrate", "Duration": 0, "Value": "95"},
+    { "PowerHint": "LOW_POWER", "Node": "sched_downmigrate", "Duration": 0, "Value": "98"},
     { "PowerHint": "LOW_POWER", "Node": "sched_upmigrate", "Duration": 0, "Value": "99"},
 
     { "PowerHint": "DEVICE_IDLE", "Node": "PowerHALMainState", "Duration": 0, "Value": "DEVICE_IDLE" },
@@ -659,10 +731,14 @@
     { "PowerHint": "DEVICE_IDLE", "Node": "TAGoldBoost", "Duration": 0, "Value": "0", "OverrideProperty": "persist.baikal.idle.TAGoldBoost" },
 
     { "PowerHint": "DEVICE_IDLE", "Node": "TopAppCpuset", "Duration": 0, "Value": "0-5" },
-    { "PowerHint": "DEVICE_IDLE", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-5" },
+    { "PowerHint": "DEVICE_IDLE", "Node": "ForegroundCpuset", "Duration": 0, "Value": "0-3" },
+    { "PowerHint": "DEVICE_IDLE", "Node": "BackgroundCpuset", "Duration": 0, "Value": "2-3" },
+    { "PowerHint": "DEVICE_IDLE", "Node": "RestrictedCpuset", "Duration": 0, "Value": "2-3" },
+    { "PowerHint": "DEVICE_IDLE", "Node": "SystemBackgroundCpuset", "Duration": 0, "Value": "0-1" },
+
     { "PowerHint": "DEVICE_IDLE", "Node": "CPUBigClusterMinCpus", "Duration": 0, "Value": "0" },
 
-    { "PowerHint": "DEVICE_IDLE", "Node": "sched_downmigrate", "Duration": 0, "Value": "95"},
+    { "PowerHint": "DEVICE_IDLE", "Node": "sched_downmigrate", "Duration": 0, "Value": "98"},
     { "PowerHint": "DEVICE_IDLE", "Node": "sched_upmigrate", "Duration": 0, "Value": "99"},
 
     { "PowerHint": "INTERACTION", "Node": "PowerHALMainState", "Duration": 0, "Value": "INTERACTION" },
