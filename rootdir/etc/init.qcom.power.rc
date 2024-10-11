@@ -240,10 +240,11 @@ on enable-low-power
     write /dev/cpuset/system-background/cpus 0-5
     write /dev/cpuset/restricted/cpus 2-5
 
-    # Post-setup services
-    setprop vendor.post_boot.parsed 1
-
     write /sys/kernel/fast_charge/force_fast_charge 1
+
+    # Post-setup services
+    # setprop vendor.post_boot.parsed 1
+
 
 on property:sys.boot_completed=1
     trigger enable-low-power
