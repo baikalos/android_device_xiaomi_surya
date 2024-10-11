@@ -48,7 +48,7 @@ AUDIO_FEATURE_ENABLED_DTS_EAGLE := false
 AUDIO_FEATURE_ENABLED_DYNAMIC_LOG := false
 
 BOARD_SUPPORTS_SOUND_TRIGGER := true
-# BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 
 TARGET_PROVIDES_AUDIO_EXTNS := true
 
@@ -72,9 +72,15 @@ BOARD_HAVE_QCOM_FM := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 LOC_HIDL_VERSION := 4.0
 
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
+# HIDL
+#DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+#    $(DEVICE_PATH)/configs/hidl/device_framework_compatibility_matrix.xml \
+#    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
+#    vendor/lineage/config/device_framework_matrix.xml
+
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 DEVICE_MANIFEST_FILE += hardware/qcom-caf/sm8150/media/conf_files/sm6150/c2_manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
+DEVICE_MATRIX_FILE += $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 ODM_MANIFEST_FILES += $(DEVICE_PATH)/configs/hidl/manifest-qva.xml
 ODM_MANIFEST_SKUS += surya
 ODM_MANIFEST_SURYA_FILES := \
