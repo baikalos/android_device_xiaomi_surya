@@ -100,24 +100,35 @@ persist.vendor.audio.calfile7=/vendor/etc/acdbdata/IDP/IDP_Handset_cal.acdb
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
+bluetooth.hardware.power.idle_cur_ma=36
 bluetooth.hardware.power.operating_voltage_mv=3300
+bluetooth.hardware.power.rx_cur_ma=20
+bluetooth.hardware.power.tx_cur_ma=3
 bluetooth.profile.asha.central.enabled?=true
 bluetooth.profile.a2dp.source.enabled?=true
 bluetooth.profile.avrcp.target.enabled?=true
+bluetooth.profile.bap.broadcast.assist.enabled?=true
+bluetooth.profile.bap.unicast.client.enabled?=true
 bluetooth.profile.bas.client.enabled?=true
+bluetooth.profile.csip.set_coordinator.enabled?=true
 bluetooth.profile.gatt.enabled?=true
+bluetooth.profile.hap.client.enabled?=true
 bluetooth.profile.hfp.ag.enabled?=true
 bluetooth.profile.hid.device.enabled?=true
 bluetooth.profile.hid.host.enabled?=true
 bluetooth.profile.map.server.enabled?=true
+bluetooth.profile.mcp.server.enabled?=true
 bluetooth.profile.opp.enabled?=true
 bluetooth.profile.pan.nap.enabled?=true
 bluetooth.profile.pan.panu.enabled?=true
 bluetooth.profile.pbap.server.enabled?=true
 bluetooth.profile.sap.server.enabled?=true
+bluetooth.profile.ccp.server.enabled?=true
+bluetooth.profile.vcp.controller.enabled?=true
 persist.bluetooth.a2dp_offload.disabled=false
 persist.vendor.bt.aac_frm_ctl.enabled=true
-persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
+#persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
+persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
 persist.vendor.qcom.bluetooth.scram.enabled=true
@@ -136,6 +147,7 @@ vendor.camera.aux.packagelist=com.android.camera,org.lineageos.aperture,org.line
 ro.miui.notch=1
 #ro.product.mod_device=surya_global
 ro.com.google.lens.oem_camera_package=com.android.camera
+persist.vendor.camera.perflock.enable=0
 
 
 # Chipset
@@ -168,10 +180,12 @@ persist.vendor.dpmhalservice.enable=1
 ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1
 
+ro.hwui.render_ahead=20
 debug.egl.hw=0
 debug.mdpcomp.logs=0
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_gl_backpressure=1
+debug.sf.auto_latch_unsignaled=0
 
 debug.sf.enable_transaction_tracing=false
 debug.sf.frame_rate_multiple_threshold=120
@@ -289,6 +303,8 @@ wifi.aware.interface=wifi-aware0
 #ro.zram.mark_idle_delay_mins=60
 #ro.zram.first_wb_delay_mins=1440
 #ro.zram.periodic_wb_delay_hours=24
+persist.baikal.zramsize=2048
+
 
 # Zygote
 zygote.critical_window.minute=10
@@ -388,6 +404,8 @@ persist.baikal.low.GPUMaxFreq=4
 persist.baikal.low.TASchedtuneBoost=18
 persist.baikal.low.TASilverBoost=18
 persist.baikal.low.TAGoldBoost=18
+persist.baikal.low.CPULittleClusterCoreCtl=1
+persist.baikal.low.CPUBigClusterCoreCtl=1
 
 persist.baikal.fixed.CPULittleClusterMaxFreq=0
 persist.baikal.fixed.CPUBigClusterMaxFreq=0
@@ -479,3 +497,9 @@ persist.vendor.radio.rat_on=combine
 
 persist.vendor.radio.hidl_dev_service=true
 persist.vendor.service.bdroid.ssrlvl=3
+
+# Bluetooth
+persist.vendor.btstack.aac_frm_ctl.enabled=true
+persist.vendor.btstack.enable.lpa=true
+persist.vendor.btstack.enable.twsplus=true
+persist.vendor.service.bdroid.soc.alwayson=true
