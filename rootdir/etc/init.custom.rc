@@ -3,22 +3,24 @@
 on property:persist.baikal.srv.dolby=1
     enable dms-hal-2-0
     setprop persist.baikal.lib.gamedap 0
+    setprop persist.baikal.lib.dap_hw 0
+    setprop persist.baikal.lib.dap_sw 0
     setprop persist.baikal.lib.vqe 0
-    setprop persist.baikal.lib.dap 0
     setprop persist.baikal.eff.gamedap 0
-    setprop persist.baikal.eff.vqe 0
     setprop persist.baikal.eff.dap 0 
+    setprop persist.baikal.eff.vqe 0
 
     setprop sys.audio.restart.hal 1
 
 on property:persist.baikal.srv.dolby=0
     stop dms-hal-2-0
     setprop persist.baikal.lib.gamedap 1
+    setprop persist.baikal.lib.dap_hw 1
+    setprop persist.baikal.lib.dap_sw 1 
     setprop persist.baikal.lib.vqe 1
-    setprop persist.baikal.lib.dap 1 
     setprop persist.baikal.eff.gamedap 1
-    setprop persist.baikal.eff.vqe 1
     setprop persist.baikal.eff.dap 1
+    setprop persist.baikal.eff.vqe 1
 
     setprop sys.audio.restart.hal 1
 
@@ -88,3 +90,20 @@ on property:baikal.log.record=1
 
 on property:sys.user.0.ce_available=true
     mkdir "/storage/emulated/0/BaikalOS"
+
+service baikal-post-boot /vendor/bin/sh /vendor/bin/init.baikal.post_boot.sh
+    class core
+    user root
+    group root system wakelock graphics
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    write /proc/sys/vm/page-cluster 0
+
+    start baikal-post-boot
+
+
+on property:persist.baikal.zramsize=*
+
+    start baikal-post-boot
