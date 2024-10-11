@@ -41,7 +41,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>android.hardware.drm</name>
-    <version>1.0-3</version>
+    <version>1.0-4</version>
     <interface>
         <name>ICryptoFactory</name>
         <instance>widevine</instance>
@@ -487,6 +487,14 @@
     <interface>
         <name>ISupplicant</name>
         <instance>default</instance>
+    </interface>
+</hal>
+<hal format="hidl" optional="true">
+    <name>android.hardware.secure_element</name>
+    <version>1.2</version>
+    <interface>
+        <name>ISecureElement</name>
+        <instance>SIM1</instance>
     </interface>
 </hal>
 </compatibility-matrix>
