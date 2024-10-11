@@ -2851,6 +2851,8 @@
         <ctl name="TAS256X ASI1 SEL LEFT"  value="Left" />
         <ctl name="TAS256X ASI Right Switch" value="1" />
         <ctl name="TAS256X ASI Left Switch"  value="1" />
+		<ctl name="RX_COMP1 Switch"  value="1" />
+		<ctl name="RX_COMP2 Switch"  value="1" />
     </path>
 <!--add for factory spk test-->
     <path name="speaker-left">
