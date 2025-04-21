@@ -100,10 +100,54 @@ service baikal-post-boot /vendor/bin/sh /vendor/bin/init.baikal.post_boot.sh
 
 on property:sys.boot_completed=1
     write /proc/sys/vm/page-cluster 0
-
     start baikal-post-boot
 
 
 on property:persist.baikal.zramsize=*
-
     start baikal-post-boot
+
+on property:persist.baikal.mem_sleep=*
+    write /sys/power/mem_sleep ${persist.baikal.mem_sleep:-"deep"}
+
+on property:persist.baikal.force.warm=true
+    write /sys/module/msm_poweroff/parameters/force_warm_reboot 1
+
+on property:persist.baikal.force.warm=false
+    write /sys/module/msm_poweroff/parameters/force_warm_reboot 0
+
+on boot
+    chown system system /sys/module/baikalfs/parameters/filter_from_user_apps
+    chown system system /sys/module/baikalfs/parameters/filter_invert
+    chown system system /sys/module/baikalfs/parameters/filter_isolated
+    chown system system /sys/module/baikalfs/parameters/filter_uids
+
+    chmod 0660 /sys/module/baikalfs/parameters/filter_from_user_apps
+    chmod 0660 /sys/module/baikalfs/parameters/filter_invert
+    chmod 0660 /sys/module/baikalfs/parameters/filter_isolated
+    chmod 0660 /sys/module/baikalfs/parameters/filter_uids
+
+
+on property:persist.baikal.filterfs_enable=true
+    write /sys/module/baikalfs/parameters/filter_from_user_apps 1
+
+on property:persist.baikal.filterfs_enable=false
+    write /sys/module/baikalfs/parameters/filter_from_user_apps 0
+
+on property:persist.baikal.filterfs_invert=true
+    write /sys/module/baikalfs/parameters/filter_invert 1
+
+on property:persist.baikal.filterfs_invert=false
+    write /sys/module/baikalfs/parameters/filter_invert 0
+
+on property:persist.baikal.filterfs_isolated=true
+    write /sys/module/baikalfs/parameters/filter_isolated 1
+
+on property:persist.baikal.filterfs_isolated=false
+    write /sys/module/baikalfs/parameters/filter_isolated 0
+
+on property:persist.baikal.filter_uids=*
+    write /sys/module/baikalfs/parameters/filter_uids ${persist.baikal.filter_uids:-"999999"}
+
+on property:init.svc.statsd=running
+    # Disable native stats collection service
+    stop statsd
