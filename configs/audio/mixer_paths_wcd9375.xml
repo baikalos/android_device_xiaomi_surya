@@ -182,8 +182,8 @@
     <ctl name="Compress Playback 44 Volume" value="0" />
     <ctl name="Compress Playback 45 Volume" value="0" />
 
-    <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
-    <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
+    <!-- ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
+    <ctl name="RX HPH Mode" value="CLS_H_HIFI" / -->
 
     <!-- 24bit support end -->
     <!-- HFP start -->
@@ -428,8 +428,8 @@
     <ctl name="COMP8 Switch" value="0" />
 
     <!-- Headphone class-H mode -->
-    <!-- ctl name="RX_HPH_PWR_MODE" value="ULP" />
-    <ctl name="RX HPH Mode" value="CLS_H_ULP" / -->
+    <ctl name="RX_HPH_PWR_MODE" value="ULP" />
+    <ctl name="RX HPH Mode" value="CLS_H_ULP" />
 
     <!-- IIR/voice anc -->
     <ctl name="IIR0 Band1" id ="0" value="268435456" />
