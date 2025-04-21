@@ -232,7 +232,7 @@ vendor.display.qdcm.disable_factory_mode=1
 # Display - Dynamic refresh rate
 ro.surface_flinger.set_display_power_timer_ms=1000
 ro.surface_flinger.set_idle_timer_ms=80
-ro.surface_flinger.set_touch_timer_ms=200
+ro.surface_flinger.set_touch_timer_ms=2000
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 #vendor.display.idle_time=0
 #vendor.display.idle_time_inactive=0
@@ -246,7 +246,7 @@ persist.sys.sf.color_mode=9
 persist.wm.enable_remote_keyguard_animation=0
 
 # FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
+# ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # HVDCP
 persist.vendor.cp.fcc_main_ua=400000
@@ -305,6 +305,9 @@ wifi.aware.interface=wifi-aware0
 #ro.zram.periodic_wb_delay_hours=24
 persist.baikal.zramsize=2048
 
+persist.baikal.srv.jdsp=0
+persist.baikal.srv.dolby=0
+persist.baikal.srv.afx=1
 
 # Zygote
 zygote.critical_window.minute=10
