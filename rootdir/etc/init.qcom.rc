@@ -239,7 +239,7 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     oneshot
     task_profiles ServiceCapacityLow
 
-service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
+service vendor.cnss-daemon /vendor/bin/cnss-daemon -n
     class late_start
     user system
     group system inet net_admin wifi
