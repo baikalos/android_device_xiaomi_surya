@@ -16,6 +16,7 @@
 
 # Fingerprint
 /dev/goodix_fp                                                       u:object_r:fingerprint_device:s0
+/data/vendor/dolby(/.*)?                      u:object_r:vendor_data_file:s0
 /data/vendor/fpc(/.*)?                                               u:object_r:fingerprint_data_file:s0
 /data/vendor/fpdump(/.*)?                                            u:object_r:fingerprint_data_file:s0
 /data/vendor/goodix(/.*)?                                            u:object_r:fingerprint_data_file:s0
@@ -23,6 +24,8 @@
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.livedisplay-service\.surya           u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/vendor/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                                                u:object_r:hal_dms_default_exec:s0
+
 
 # IR
 /dev/spidev0.1                                                       u:object_r:spidev_device:s0
@@ -36,3 +39,11 @@
 # Xiaomi thermal daemon
 /vendor/bin/mi_thermald                                              u:object_r:mi_thermald_exec:s0
 /data/vendor/thermal(/.*)?                                           u:object_r:thermal_data_file:s0
+
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue(/*)? u:object_r:vendor_sysfs_scsi_host:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:1/block/sdb/queue(/*)? u:object_r:vendor_sysfs_scsi_host:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:2/block/sdc/queue(/*)? u:object_r:vendor_sysfs_scsi_host:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:3/block/sdd/queue(/*)? u:object_r:vendor_sysfs_scsi_host:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/queue(/*)? u:object_r:vendor_sysfs_scsi_host:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:5/block/sdf/queue(/*)? u:object_r:vendor_sysfs_scsi_host:s0
+

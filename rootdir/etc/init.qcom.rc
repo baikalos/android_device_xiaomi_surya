@@ -119,6 +119,14 @@ on boot
     chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_cont
 
+
+    # Charger
+    chown system system /sys/kernel/fast_charge/force_fast_charge
+    chmod 0664 /sys/kernel/fast_charge/force_fast_charge
+
+    chown system system /sys/class/power_supply/bms/fastcharge_mode
+    chmod 0664 /sys/class/power_supply/bms/fastcharge_mode
+
 on post-fs-data
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics

@@ -526,4 +526,11 @@
     <!-- Whether WM DisplayContent supports high performance transitions
          (lower-end devices may want to disable) -->
     <bool name="config_deviceSupportsHighPerfTransitions">false</bool>
+
+    <bool name="config_hasTurboPowerCharger">true</bool>
+
+    <integer name="config_baikal_thermal_type">0</integer>
+    <string name="config_baikal_thermal_kernelfs" translatable="false">/sys/class/thermal/thermal_message/sconfig</string>
+    <string name="config_baikal_thermal_property" translatable="false"></string>
+
 </resources>

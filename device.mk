@@ -7,6 +7,13 @@
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
 
+PRODUCT_RELEASE_CONFIG_OVERRIDES += RELEASE_ACONFIGD_ENABLED=true
+RELEASE_ACONFIG_STORAGE_REWRITABLE := true
+
+# Set properties to trick aconfigd into thinking it's writable
+
+FULL_SYSTEM_OPTIMIZE_JAVA := false
+
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
@@ -52,7 +59,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tavil.txt \
-    $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9375.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9375.xml
+    $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9375.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9375.xml \
+    $(LOCAL_PATH)/configs/audio/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
@@ -79,6 +88,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml
 
 # Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
@@ -97,7 +107,8 @@ PRODUCT_COPY_FILES += \
 
 # Dex/ART optimization
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
 USE_DEX2OAT_DEBUG := false
 
 # Display
@@ -107,6 +118,10 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     vendor.qti.hardware.memtrack-service \
     vendor.qti.hardware.display.allocator-service
+
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    DolbyAtmos \
 
 PRODUCT_PACKAGES += \
     gralloc.qcom \
@@ -231,10 +246,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
+$(call soong_config_set_bool,lineage_health,charging_control_charging_toggle,true)
 $(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
 $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/input_suspend)
 $(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
+
+$(call soong_config_set,lineage_health,fast_charge_node,/sys/class/power_supply/bms/fastcharge_mode)
+$(call soong_config_set,lineage_health,fast_charge_value_none,0)
+$(call soong_config_set,lineage_health,fast_charge_value_fast_charge,1)
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -245,6 +265,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_performance_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_c2.xml \
     $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+
+# MiuiCamera
+$(call inherit-product-if-exists, device/xiaomi/surya-miuicamera/device.mk)
+# $(call inherit-product, vendor/xiaomi/miuicamera/config.mk)
 
 # Network
 PRODUCT_COPY_FILES += \
@@ -304,8 +328,11 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.pixel-libperfmgr \
+    android.hardware.power-service.lineage-libperfmgr \
     libqti-perfd-client
+
+#    android.hardware.power-service.pixel-libperfmgr \
+
 
 # Enable adpf cpu hint session for SurfaceFlinger and HWUI
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -323,6 +350,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/properties/build_surya.prop:$(TARGET_COPY_OUT_RECOVERY)/root/build_surya.prop \
     $(LOCAL_PATH)/properties/build_karna.prop:$(TARGET_COPY_OUT_RECOVERY)/root/build_karna.prop
+
+# Power
+$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH):libperfmgr-ext-xiaomi)
 
 # QTI
 PRODUCT_COPY_FILES += \
@@ -352,9 +382,9 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    bootable/deprecated-ota \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/qcom/wlan \
     hardware/xiaomi \
@@ -417,8 +447,8 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 # Vulkan
-PRODUCT_PACKAGES += \
-    libvulkan
+#PRODUCT_PACKAGES += \
+#    libvulkan
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \

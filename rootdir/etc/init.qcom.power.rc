@@ -97,6 +97,26 @@ on enable-low-power
     write /proc/sys/kernel/sched_downmigrate 85
     write /proc/sys/kernel/sched_upmigrate 95
 
+
+    # Core control parameters
+    write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 1
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 5
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 10
+    write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 100
+    write /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster 0
+    write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 6
+    write /sys/devices/system/cpu/cpu0/core_ctl/not_preferred "0 1 1 1 1 1"
+
+    # Core control parameters
+    write /sys/devices/system/cpu/cpu6/core_ctl/min_cpus 0
+    write /sys/devices/system/cpu/cpu6/core_ctl/busy_down_thres 5
+    write /sys/devices/system/cpu/cpu6/core_ctl/busy_up_thres 10
+    write /sys/devices/system/cpu/cpu6/core_ctl/offline_delay_ms 100
+    write /sys/devices/system/cpu/cpu6/core_ctl/is_big_cluster 1
+    write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 2
+    write /sys/devices/system/cpu/cpu6/core_ctl/not_preferred "1 1"
+    write /sys/devices/system/cpu/cpu6/core_ctl/nr_prev_assist_thresh 1
+
     # Enable bus-dcvs
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor "bw_hwmon"
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/mbps_zones "2288 4577 7110 9155 12298 14236"
@@ -187,16 +207,24 @@ on enable-low-power
     write /sys/block/sde/queue/nr_requests 128
 
     # Set swappiness to 100
-    write /proc/sys/vm/swappiness 100
+    write /proc/sys/vm/swappiness 60
 
     # Set cpuset parameters
+
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/restricted/cpus 0-3
+
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-5,7
     write /dev/cpuset/background/cpus 4-5
-    write /dev/cpuset/system-background/cpus 2-5
+    write /dev/cpuset/system-background/cpus 0-5
     write /dev/cpuset/restricted/cpus 2-5
-    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
-    setprop dalvik.vm.dex2oat-threads 6
+
+    # setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
+    # setprop dalvik.vm.dex2oat-threads 6
 
     # Post-setup services
     setprop vendor.post_boot.parsed 1

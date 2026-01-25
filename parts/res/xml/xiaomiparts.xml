@@ -46,34 +46,6 @@
                 android:targetPackage="org.lineageos.settings.display" />
         </Preference>
 
-        <Preference
-            android:key="refresh_rate_settings"
-            android:icon="@drawable/ic_refresh_rate"
-            android:title="@string/refresh_title"
-            android:summary="@string/refresh_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="org.lineageos.settings.refreshrate.RefreshActivity"
-                android:targetPackage="org.lineageos.settings.refreshrate" />
-        </Preference>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="performance"
-        android:title="@string/performance_title">
-
-        <Preference
-            android:key="thermal_settings"
-            android:icon="@drawable/ic_thermal_settings"
-            android:title="@string/thermal_title"
-            android:summary="@string/thermal_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="org.lineageos.settings.thermal.ThermalSettingsActivity"
-                android:targetPackage="org.lineageos.settings.thermal" />
-        </Preference>
-
     </PreferenceCategory>
 
     <PreferenceCategory

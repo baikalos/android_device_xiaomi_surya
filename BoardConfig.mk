@@ -4,7 +4,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+RELEASE_ACONFIG_VALUE_SET := trunk_staging
+
 DEVICE_PATH := device/xiaomi/surya
+
+#TARGET_ENABLE_ADB := true
+#BOARD_DEBUGGABLE := true
+#BOARD_ALLOW_ADBD_ROOT := true
+#WITH_ADB_INSECURE := true
 
 # Inherit from proprietary files
 include vendor/xiaomi/surya/BoardConfigVendor.mk
@@ -37,6 +44,11 @@ TARGET_PROVIDES_AUDIO_EXTNS := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sm6150
 TARGET_NO_BOOTLOADER := true
+
+# Camera
+$(call soong_config_set_bool,camera,override_format_from_reserved,true)
+$(call soong_config_set,camera,package_name,com.xiaomi.sessionparams.clientName)
+
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
@@ -76,11 +88,15 @@ BOARD_KERNEL_CMDLINE += cgroup_disable=pressure
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 # Malloc
-MALLOC_SVELTE := true
-MALLOC_SVELTE_FOR_LIBC32 := true
+#MALLOC_SVELTE := true
+#MALLOC_SVELTE_FOR_LIBC32 := true
 
 # Media
 TARGET_USES_ION := true
+
+# MiuiCamera
+-include device/xiaomi/surya-miuicamera/BoardConfig.mk
+# -include vendor/xiaomi/miuicamera/config.mk
 
 # Partitions
 BOARD_USES_METADATA_PARTITION := true
@@ -105,15 +121,10 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-ifeq ($(WITH_GMS),true)
-BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 104857600
-BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 104857600
-else
 BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT := -1
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 1887436800
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1887436800
-endif
 BOARD_SYSTEM_EXTIMAGE_EXTFS_INODE_COUNT := -1
 BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 104857600
 BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 104857600
@@ -148,7 +159,11 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 # Screen density
 TARGET_SCREEN_DENSITY := 400
 
+
+
 # Sepolicy
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+
 TARGET_SEPOLICY_DIR := msmsteppe
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
@@ -187,3 +202,6 @@ WIFI_HIDL_FEATURE_AWARE := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+
+# $(call inherit-product, vendor/xiaomi/miuicamera/config.mk)

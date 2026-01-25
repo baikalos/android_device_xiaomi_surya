@@ -1,3 +1,8 @@
+aconfigd.is_writable=true
+persist.device_config.aconfig_flags.enabled=true
+persist.device_config.aconfig_flags.writable=true
+
+
 # Bluetooth
 vendor.bluetooth.soc=cherokee
 
@@ -11,6 +16,12 @@ pm.dexopt.bg-dexopt=everything
 
 # FUSE
 persist.sys.fuse.passthrough.enable=true
+
+# GFX
+# ro.config.avoid_gfx_accel=true
+
+# FS-verity
+# ro.apk_verity.mode=2
 
 # IMS
 persist.vendor.qti.telephony.vt_cam_interface=2

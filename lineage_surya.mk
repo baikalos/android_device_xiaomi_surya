@@ -18,7 +18,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # crDroid build flag
 TARGET_ENABLE_BLUR := true
-TARGET_EXCLUDES_AUDIOFX := true
+# TARGET_EXCLUDES_AUDIOFX := true
 
 PRODUCT_NAME := lineage_surya
 PRODUCT_DEVICE := surya

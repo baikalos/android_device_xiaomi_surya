@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="thermal_listentries">
+    	<item>@string/thermal_default</item>
+    	<item>@string/thermal_balance</item>
+    	<item>@string/thermal_gaming</item>
+    	<item>@string/thermal_nolimits</item>
+    	<item>@string/thermal_camera</item>
+    	<item>@string/thermal_dialer</item>
+    	<item>@string/thermal_vr</item>
+     </string-array>
+
+     <string-array name="thermal_listvalues">
+    	<item>0</item>
+    	<item>-1</item>
+    	<item>9</item>
+    	<item>10</item>
+    	<item>12</item>
+    	<item>8</item>
+    	<item>15</item>
+    </string-array>
+
+</resources>
